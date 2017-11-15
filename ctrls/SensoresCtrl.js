@@ -1,8 +1,8 @@
-var app = angular.module('DepositoMasCtrl', []);
+var app = angular.module('SensoresCtrl', []);
 
-app.controller('DepositoMasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
-   	
-   // auth.redirectIfNotExists();
+app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr',  function ($scope, restApi, $location, auth, locStr) {
+
+    //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
 
     // restApi.call({

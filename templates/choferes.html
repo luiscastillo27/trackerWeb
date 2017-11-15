@@ -1,0 +1,183 @@
+<div class="wrapper" ng-controller="MenuCtrl">
+  
+      <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
+    
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+      -->
+      <div class="logo">
+        <div class="logo-img">
+          <img src="img/logo.png" alt="">
+        </div>
+      </div>
+
+      <div class="sidebar-wrapper">
+                
+        <ul class="nav">
+            <li ng-show="Perfil">
+                <a href="#/perfil">
+                    <i class="material-icons">person</i>
+                    <p>Perfil</p>
+                </a>
+            </li>   
+            <li ng-show="Choferes">
+                <a href="#/choferes" class="active">
+                    <i class="fa fa-users"></i>
+                    <p>Choferes</p>
+                </a>
+            </li>
+            <li ng-show="Rutas">
+                <a href="#/rutas">
+                    <i class="fa fa-rocket"></i>
+                    <p>Rutas</p> <!-- //falta -->
+                </a>
+            </li>
+            <li ng-show="Mantenimiento">
+                <a href="#/mantenimiento">
+                  <i class="fa fa-cogs"></i>
+                    <p>Mantenimiento</p>
+                </a>
+            </li>
+            <li ng-show="Piezas">
+                <a href="#/piezas">
+                    <i class="fa fa-puzzle-piece"></i>
+                    <p>Piezas</p>  <!-- //falta -->
+                </a>
+            </li>
+            <li ng-show="Sensores">
+                <a href="#/sensores">
+                    <i class="material-icons">location_on</i>
+                    <p>Sensores</p>
+                </a>
+            </li> 
+            <li ng-show="Vehiculos">
+                <a href="#/vehiculos">
+                    <i class="fa fa-truck"></i>
+                    <p>Vehiculos</p>
+                </a>
+            </li> 
+            <li ng-show="Calendario">
+                <a href="#/calendario">
+                    <i class="fa fa-calendar"></i>
+                    <p>Calendario</p>
+                </a>
+            </li>
+        </ul>
+
+      </div>
+
+    </div><!-- MENU -->
+
+    
+    <div class="main-panel">
+          <div class="main-menu" ng-controller="FormsCtrl">
+          
+                <a ng-click="btnMenu(abir);" class="btnmenu">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown">
+                    <button class="btnPerfil" data-toggle="dropdown">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu" ng-controller="LoginCtrl">
+                        <li ng-if="Perfil"><a href="#/perfil">Perfil</a></li>
+                        <li><a href="#/perfil/editar">Editar perfil</a></li>
+                        <li><a ng-click="salir();">Salir del sistema</a></li>
+                    </ul>
+                </div>
+            
+          </div>
+      
+
+            <div class="content">
+
+
+
+
+                    <!-- AQUI EDITAR -->
+                    <div class="container-fluid">
+                                   
+                        <div class="row">
+                                 
+                            <div class="col-md-12">
+                                <button ng-click="ncliente();" class="btn btn-subir btn-success pull-right">Nuevo chofer </button>        
+                                <div class="card">
+
+                                        <div class="card-header" data-background-color="purple">
+                                            <h4 class="title">Lista de choferes</h4>   
+                                            <div class="buscador">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label"></label>
+                                                    <input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar chofer">
+                                                </div>
+                                            </div>  
+                                        </div><!-- CARD HEADER -->
+                                                    
+                                        <div class="card-content table-responsive">
+                                            
+                                            <div class="content-load" ng-if="cargando">
+                                                <h3>Cargando contenido</h3>
+                                                <img src="./img/load.gif">
+                                            </div><!-- CONTENT LOAD -->
+
+                                            <div class="content-load" ng-if="vacio">
+                                                <h3>No hay ningún elemento</h3>
+                                            </div><!-- CONTENT LOAD -->
+
+                                            <table class="table" ng-if="!cargando">
+                                                <thead class="text-primary">
+                                                    <th>Correo electronico</th>
+                                                    <th>Contraseña</th>
+                                                </thead>
+                                                <tbody id="dataClientes">
+
+                                                    <tr ng-repeat="cliente in clientes | filter: buscador">
+                                                        <td>{{cliente.folio_contrato}}</td>
+                                                        <td>{{cliente.nombre_completo}}</td>
+                                                        <td>{{cliente.telefono}}</td>
+                                                        <td>{{cliente.fecha}}</td>
+                                                        <td> 
+                                                            <a ng-click="editcliente(cliente.idCliente);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+                                                            
+                                                            <a ng-click="deletecliente(cliente.idCliente);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                                        </td>
+                                                    </tr>
+                                                                
+                                                </tbody>
+                                            </table>
+                                            <!-- TABLE -->
+
+                                    </div><!-- CARD CONTENT -->
+
+                                </div><!-- CARD -->
+
+                            </div><!-- COL 12 -->
+                                            
+                        </div><!-- ROW -->
+
+                            <div class="mostrar-caja" ng-if="exite">
+                                <div class="mostrar-btn">
+                                    <a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar más</a>
+                                </div>
+                                <div class="mostrar-img">
+                                    <img src="./img/load.gif" alt="">
+                                </div>
+                            </div>
+
+                    </div><!-- CONTAINER -->
+                    <!-- AQUI EDITAR -->
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- content -->
+
+     <div ng-include="pie"></div>
+

@@ -1,6 +1,6 @@
-var app = angular.module('TerrenosCtrl', []);
+var app = angular.module('CalendarioCtrl', []);
 
-app.controller('TerrenosCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr',  function ($scope, restApi, $location, auth, locStr) {
+app.controller('CalendarioCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', 'restApiImg', function ($scope, restApi, $location, auth, locStr, restApiImg) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
@@ -26,7 +26,6 @@ app.controller('TerrenosCtrl', ['$scope', 'restApi', '$location', 'auth', 'locSt
         $("#vNuevoCln").fadeIn(0);
         $("#vNuevoCln").addClass('animated rubberBand'); 
     }
-
 
 }]);
 

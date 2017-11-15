@@ -18,44 +18,48 @@ app.config(['$routeProvider', '$locationProvider',  function($routeProvider, $lo
           controller: 'EditarPerfilCtrl',
           templateUrl: 'templates/editarperfil.html'
         })
-        .when('/empleados', {
-          controller: 'EmpleadosCtrl',
-          templateUrl: 'templates/empleados.html'
+        .when('/mantenimiento', {
+          controller: 'MantenimientoCtrl',
+          templateUrl: 'templates/mantenimiento.html'
         })
         .when('/login', {
           controller: 'LoginCtrl',
           templateUrl: 'templates/login.html'
         })
-        .when('/clientes', {
-          controller: 'ClientesCtrl',
-          templateUrl: 'templates/clientes.html'
+        .when('/choferes', {
+          controller: 'ChoferesCtrl',
+          templateUrl: 'templates/choferes.html'
         })
-        .when('/depositos', {
-          controller: 'DepositosCtrl',
-          templateUrl: 'templates/depositos.html'
+        .when('/rutas', {
+          controller: 'RutasCtrl',
+          templateUrl: 'templates/rutas.html'
         })
-        .when('/deposito/:id', {
-          controller: 'DepositoMasCtrl',
-          templateUrl: 'templates/masdepositos.html'
+        .when('/rutas/:id', {
+          controller: 'RutasMasCtrl',
+          templateUrl: 'templates/masrutas.html'
         })
-        .when('/pagos', {
-          controller: 'PagosCtrl',
-          templateUrl: 'templates/pagos.html'
+        .when('/piezas', {
+          controller: 'PiezasCtrl',
+          templateUrl: 'templates/piezas.html'
         })
-        .when('/pago/:id', {
-          controller: 'PagoMasCtrl',
+        .when('/piezas/:id', {
+          controller: 'PiezasMasCtrl',
           templateUrl: 'templates/maspagos.html'
         })
-        .when('/terrenos', {
-          controller: 'TerrenosCtrl',
-          templateUrl: 'templates/terrenos.html'
+        .when('/sensores', {
+          controller: 'SensoresCtrl',
+          templateUrl: 'templates/sensores.html'
         })
         .when('/mapa', {
           templateUrl: 'templates/mapa.html'
         })
-        .when('/videos', {
-          controller: 'VideosCtrl',
-          templateUrl: 'templates/videos.html'
+        .when('/calendario', {
+          controller: 'CalendarioCtrl',
+          templateUrl: 'templates/calendario.html'
+        })
+        .when('/vehiculos', {
+          controller: 'VehiculosCtrl',
+          templateUrl: 'templates/vehiculos.html'
         })
         .when('/errorserver', {
           templateUrl: 'templates/errorserver.html'

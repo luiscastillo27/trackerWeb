@@ -2,12 +2,12 @@
 <html>
 	<head>
   	  <meta charset="utf-8" />
-      <title>Desarrollo campestre la cruz</title>
+      <title>Transportes!</title>
       <!-- <base href="/"> -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="author" content="Luis Castillo Z | iWebsapp |">
       <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="../home/css/animate.css">
+      
       <link href="./css/bootstrap.min.css" rel="stylesheet" />
       <link href="./css/material-dashboard.css" rel="stylesheet"/>
       <link href="./css/material-icons.css" rel='stylesheet'>
@@ -24,14 +24,14 @@
      
             <div class="forms" ng-controller="FormsCtrl">
                 <div class="modal-bg">
-                    <div ng-include="clienteV" ng-controller="ClientesFormCtrl"></div>
-                    <div ng-include="masdepositosV" ng-controller="DepositoMasFormCtrl"></div>
-                    <div ng-include="depositosV" ng-controller="DepositosFormCtrl"></div>
-                    <div ng-include="empleadosV" ng-controller="EmpleadosFormCtrl"></div>
-                    <div ng-include="maspagosV" ng-controller="PagoMasFormCtrl" ></div>
-                    <div ng-include="pagosV" ng-controller="PagosFormCtrl"></div>
-                    <div ng-include="terrenosV" ng-controller="TerrenosFormCtrl"></div>
-                    <div ng-include="videosV" ng-controller="VideosFormCtrl"></div>
+                    <div ng-include="choferesV" ng-controller="ChoferesFormCtrl"></div>
+                    <div ng-include="masrutasV" ng-controller="RutasMasFormCtrl"></div>
+                    <div ng-include="rutasV" ng-controller="RutasFormCtrl"></div>
+                    <div ng-include="mantenimientoV" ng-controller="MantenimientoFormCtrl"></div>
+                    <div ng-include="vehiculosV" ng-controller="VehiculosFormCtrl" ></div>
+                    <div ng-include="piezasV" ng-controller="PiezasFormCtrl"></div>
+                    <div ng-include="sensoresV" ng-controller="SensoresFormCtrl"></div>
+                    <div ng-include="calendarioV" ng-controller="CalendarioFormCtrl"></div>
                 </div>
             </div>  
 
@@ -41,7 +41,7 @@
   
 
     <script src="js/jquery.min.js"></script>
-    <script src="../home/js/scrollflow.js"></script>
+   
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
@@ -59,24 +59,27 @@
     <script src="ctrls/MenuCtrl.js"></script>
     <script src="ctrls/LoginCtrl.js"></script>
     
-    <script src="ctrls/ClientesCtrl.js"></script>
-    <script src="ctrls/DepositoMasCtrl.js"></script>
-    <script src="ctrls/DepositosCtrl.js"></script> 
-    <script src="ctrls/EmpleadosCtrl.js"></script>
-    <script src="ctrls/PagoMasCtrl.js"></script>
-    <script src="ctrls/PagosCtrl.js"></script> 
-    <script src="ctrls/TerrenosCtrl.js"></script>
-    <script src="ctrls/VideosCtrl.js"></script>
+    <script src="ctrls/ChoferesCtrl.js"></script>
+    
+    <script src="ctrls/RutasCtrl.js"></script> 
+    <script src="ctrls/MantenimientoCtrl.js"></script>
+    <script src="ctrls/RutasMasCtrl.js"></script>
+    <script src="ctrls/PiezasCtrl.js"></script> 
+    <script src="ctrls/SensoresCtrl.js"></script>
+    <script src="ctrls/CalendarioCtrl.js"></script>
+    <script src="ctrls/VehiculosCtrl.js"></script>
 
-    <script src="ctrlsform/ClientesFormCtrl.js"></script>
-    <script src="ctrlsform/DepositoMasFormCtrl.js"></script>
-    <script src="ctrlsform/DepositosFormCtrl.js"></script> 
-    <script src="ctrlsform/EmpleadosFormCtrl.js"></script>
-    <script src="ctrlsform/PagoMasFormCtrl.js"></script>
-    <script src="ctrlsform/PagosFormCtrl.js"></script> 
-    <script src="ctrlsform/TerrenosFormCtrl.js"></script>
-    <script src="ctrlsform/VideosFormCtrl.js"></script>
-    <script src="ctrls/ClientesLoadCtrl.js"></script>
+    <script src="ctrlsform/ChoferesFormCtrl.js"></script> 
+    <script src="ctrlsform/RutasMasFormCtrl.js"></script>
+    <script src="ctrlsform/RutasFormCtrl.js"></script> 
+    <script src="ctrlsform/MantenimientoFormCtrl.js"></script>
+
+    <script src="ctrlsform/PiezasFormCtrl.js"></script> 
+    <script src="ctrlsform/SensoresFormCtrl.js"></script>
+    <script src="ctrlsform/CalendarioFormCtrl.js"></script>
+    <script src="ctrlsform/VehiculosFormCtrl.js"></script>
+
+    <script src="ctrls/ChoferesLoadCtrl.js"></script>
 
   </body>
 </html>

@@ -5,7 +5,7 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
       -->
-      <div class="logo">
+        <div class="logo">
         <div class="logo-img">
           <img src="img/logo.png" alt="">
         </div>
@@ -16,56 +16,55 @@
         <ul class="nav">
             <li ng-show="Perfil">
                 <a href="#/perfil">
-                    <i class="material-icons">person_pin</i>
+                    <i class="material-icons">person</i>
                     <p>Perfil</p>
                 </a>
             </li>   
-            <li ng-show="Clientes">
-                <a href="#/clientes">
-                    <i class="material-icons">dashboard</i>
-                    <p>Clientes</p>
+            <li ng-show="Choferes">
+                <a href="#/choferes">
+                    <i class="fa fa-users"></i>
+                    <p>Choferes</p>
                 </a>
             </li>
-            <li ng-show="Depositos">
-                <a href="#/depositos">
-                    <i class="material-icons">monetization_on</i>
-                    <p>Depositos depósitos</p> <!-- //falta -->
+            <li ng-show="Rutas">
+                <a href="#/rutas" class="active">
+                    <i class="fa fa-rocket"></i>
+                    <p>Rutas</p> <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Empleados">
-                <a href="#/empleados" class="active"> 
-                  <i class="material-icons">person</i>
-                    <p>Empleados</p>
+            <li ng-show="Mantenimiento">
+                <a href="#/mantenimiento">
+                  <i class="fa fa-cogs"></i>
+                    <p>Mantenimiento</p>
                 </a>
             </li>
-            <li ng-show="Pagos">
-                <a href="#/pagos">
-                    <i class="material-icons">content_paste</i>
-                    <p>Pagos</p>  <!-- //falta -->
+            <li ng-show="Piezas">
+                <a href="#/piezas">
+                    <i class="fa fa-puzzle-piece"></i>
+                    <p>Piezas</p>  <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Terrenos">
-                <a href="#/terrenos">
+            <li ng-show="Sensores">
+                <a href="#/sensores">
                     <i class="material-icons">location_on</i>
-                    <p>Terrenos</p>
+                    <p>Sensores</p>
                 </a>
             </li> 
-            <li ng-show="Mapa">
-                <a href="#/mapa">
-                    <i class="material-icons">map</i>
-                    <p>Mapa</p>
+            <li ng-show="Vehiculos">
+                <a href="#/vehiculos">
+                    <i class="fa fa-truck"></i>
+                    <p>Vehiculos</p>
                 </a>
             </li> 
-            <li ng-show="Recursos">
-                <a href="#/videos">
-                    <i class="material-icons">perm_media</i>
-                    <p>Recursos</p>
+            <li ng-show="Calendario">
+                <a href="#/calendario">
+                    <i class="fa fa-calendar"></i>
+                    <p>Calendario</p>
                 </a>
             </li>
         </ul>
 
       </div>
-
     </div><!-- MENU -->
 
     
@@ -107,30 +106,28 @@
 
 
 
-
 <!-- AQUI EDITAR -->
 <div class="container-fluid">
 	           
 	<div class="row">
 	         
 	    <div class="col-md-12">
-	    	<button ng-click="nempleado();" class="btn btn-subir btn-success pull-right">Nuevo empleado</button>
-	                 
+	    	<button ng-click="ndeposito();" class="btn btn-subir btn-success pull-right">Nuevas Rutas</button>	                 
 	        <div class="card">
 
 	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">Lista de empleados</h4>      
+	                    <h4 class="title">Lista de rutas</h4>    
 						<div class="buscador">
 							<div class="form-group label-floating">
 								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" placeholder="Buscar empleado" ng-model="buscador">
+								<input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar depósito">
 							</div>
-						</div>  
+						</div>   
 	                </div><!-- CARD HEADER -->
 	                            
 	                <div class="card-content table-responsive">
-
-	                	<div class="content-load" ng-if="cargando">
+	                    
+	                    <div class="content-load" ng-if="cargando">
 							<h3>Cargando contenido</h3>
 							<img src="./img/load.gif">
 						</div><!-- CONTENT LOAD -->
@@ -138,28 +135,32 @@
 						<div class="content-load" ng-if="vacio">
 							<h3>No hay ningún elemento</h3>
 						</div><!-- CONTENT LOAD -->
-	                    
-	                    <table class="table" ng-if="!cargando">
-	                        <thead class="text-primary">
-	                            <th>Nombre</th>
-	                            <th>Puesto</th>
-	                            <th>Correo electronico</th>
-	                            <th>Acciones</th>
-	                        </thead>
-	                       	<tbody id="dataEmpleados">
 
-	                            <tr ng-repeat="empleado in empleados | filter: buscador">
-	                                <td>{{empleado.nombre}}</td>
-	                                <td>{{empleado.puesto}}</td>
-	                                <td>{{empleado.correo}}</td>
-	                                <td> 
-										<a ng-click="editempleado(empleado.idEmpleado)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-										<a ng-if="empleado.puesto != 'Administrador' " ng-click="deletempleado(empleado.idEmpleado)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
-									</td>
-	                            </tr>
-	                                        
-	                        </tbody>
-	                	</table><!-- TABLE -->
+	                    <table class="table" ng-if="!cargando">
+	                    <thead class="text-primary">
+	                        <th>Direccion</th>
+	                        <th>idChofer</th>
+							<th>Fecha</th>
+							
+	                    </thead>
+	                    <tbody id="dataDepositos">
+
+	                        <tr ng-repeat="deposito in depositos | filter: buscador">
+	                            <td>{{deposito.folio}}</td>
+	                            <td>{{deposito.auth}}</td>
+	                            <td>{{deposito.clave}}</td>
+	                            <td>{{deposito.fecha}}</td>
+								<td>{{deposito.nombre_completo}}</td>
+								<td> 
+									<a ng-click="editdeposito(deposito.idDeposito);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+									<a ng-click="verdeposito(deposito.idDeposito);" class="icon-accions fa fa-eye" aria-hidden="true"></a>
+									<a ng-click="deletedeposito(deposito.idDeposito);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+								</td>
+	                       	</tr>
+	                       	
+	                    </tbody>
+
+	                					</table><!-- TABLE -->
 
 	            </div><!-- CARD CONTENT -->
 
@@ -192,15 +193,6 @@
 
 
 
-
-
-
-
-
-
-
 </div><!-- content -->
 
        <div ng-include="pie"></div>
-
-	

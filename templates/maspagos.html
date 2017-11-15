@@ -5,7 +5,7 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
       -->
-      <div class="logo">
+        <div class="logo">
         <div class="logo-img">
           <img src="img/logo.png" alt="">
         </div>
@@ -16,50 +16,50 @@
         <ul class="nav">
             <li ng-show="Perfil">
                 <a href="#/perfil">
-                    <i class="material-icons">person_pin</i>
+                    <i class="material-icons">person</i>
                     <p>Perfil</p>
                 </a>
             </li>   
-            <li ng-show="Clientes">
-                <a href="#/clientes">
-                    <i class="material-icons">dashboard</i>
-                    <p>Clientes</p>
+            <li ng-show="Choferes">
+                <a href="#/choferes" class="active">
+                    <i class="fa fa-users"></i>
+                    <p>Choferes</p>
                 </a>
             </li>
-            <li ng-show="Depositos">
-                <a href="#/depositos">
-                    <i class="material-icons">monetization_on</i>
-                    <p>Depositos depósitos</p> <!-- //falta -->
+            <li ng-show="Rutas">
+                <a href="#/rutas">
+                    <i class="fa fa-rocket"></i>
+                    <p>Rutas</p> <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Empleados">
-                <a href="#/empleados">
-                  <i class="material-icons">person</i>
-                    <p>Empleados</p>
+            <li ng-show="Mantenimiento">
+                <a href="#/mantenimiento">
+                  <i class="fa fa-cogs"></i>
+                    <p>Mantenimiento</p>
                 </a>
             </li>
-            <li ng-show="Pagos">
-                <a href="#/pagos" class="active">
-                    <i class="material-icons">content_paste</i>
-                    <p>Pagos</p>  <!-- //falta -->
+            <li ng-show="Piezas">
+                <a href="#/piezas">
+                    <i class="fa fa-puzzle-piece"></i>
+                    <p>Piezas</p>  <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Terrenos">
-                <a href="#/terrenos">
+            <li ng-show="Sensores">
+                <a href="#/sensores">
                     <i class="material-icons">location_on</i>
-                    <p>Terrenos</p>
+                    <p>Sensores</p>
                 </a>
             </li> 
-            <li ng-show="Mapa">
-                <a href="#/mapa">
-                    <i class="material-icons">map</i>
-                    <p>Mapa</p>
+            <li ng-show="Vehiculos">
+                <a href="#/vehiculos">
+                    <i class="fa fa-truck"></i>
+                    <p>Vehiculos</p>
                 </a>
             </li> 
-            <li ng-show="Recursos">
-                <a href="#/videos">
-                    <i class="material-icons">perm_media</i>
-                    <p>Recursos</p>
+            <li ng-show="Calendario">
+                <a href="#/calendario">
+                    <i class="fa fa-calendar"></i>
+                    <p>Calendario</p>
                 </a>
             </li>
         </ul>

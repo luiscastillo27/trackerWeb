@@ -1,15 +1,15 @@
-var app = angular.module('VideosCtrl', []);
+var app = angular.module('ChoferesCtrl', []);
 
-app.controller('VideosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', 'restApiImg', function ($scope, restApi, $location, auth, locStr, restApiImg) {
+app.controller('ChoferesCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr',function ($scope, restApi, $location, auth, locStr) {
 
-    //auth.redirectIfNotExists();
+	//auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
 
-    // restApi.call({
+	// restApi.call({
  //        method: 'get',
  //        url: 'terrenos/listarDisponibles',
  //        response: function (resp) { 
- //         $scope.listaDisponibles = resp; 
+ //        	$scope.listaDisponibles = resp; 
  //        },
  //        error: function (error) {
  //            console.log(error);
@@ -21,11 +21,12 @@ app.controller('VideosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr
  //        }
  //    });
     
-    $scope.ncliente = function(){
-        $(".modal-bg").fadeIn(0);
-        $("#vNuevoCln").fadeIn(0);
+	$scope.ncliente = function(){
+		$(".modal-bg").fadeIn(0);
+		$("#vNuevoCln").fadeIn(0);
         $("#vNuevoCln").addClass('animated rubberBand'); 
-    }
+	}
+	
 
 }]);
 

@@ -1,6 +1,6 @@
-var app = angular.module('EmpleadosCtrl', []);
+var app = angular.module('MantenimientoCtrl', []);
 
-app.controller('EmpleadosCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('MantenimientoCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';

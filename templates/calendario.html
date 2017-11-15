@@ -5,7 +5,7 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
       -->
-      <div class="logo">
+       <div class="logo">
         <div class="logo-img">
           <img src="img/logo.png" alt="">
         </div>
@@ -16,50 +16,50 @@
         <ul class="nav">
             <li ng-show="Perfil">
                 <a href="#/perfil">
-                    <i class="material-icons">person_pin</i>
+                    <i class="material-icons">person</i>
                     <p>Perfil</p>
                 </a>
             </li>   
-            <li ng-show="Clientes">
-                <a href="#/clientes">
-                    <i class="material-icons">dashboard</i>
-                    <p>Clientes</p>
+            <li ng-show="Choferes">
+                <a href="#/choferes">
+                    <i class="fa fa-users"></i>
+                    <p>Choferes</p>
                 </a>
             </li>
-            <li ng-show="Depositos">
-                <a href="#/depositos" class="active">
-                    <i class="material-icons">monetization_on</i>
-                    <p>Depositos depósitos</p> <!-- //falta -->
+            <li ng-show="Rutas">
+                <a href="#/rutas">
+                    <i class="fa fa-rocket"></i>
+                    <p>Rutas</p> <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Empleados">
-                <a href="#/empleados">
-                  <i class="material-icons">person</i>
-                    <p>Empleados</p>
+            <li ng-show="Mantenimiento">
+                <a href="#/mantenimiento">
+                  <i class="fa fa-cogs"></i>
+                    <p>Mantenimiento</p>
                 </a>
             </li>
-            <li ng-show="Pagos">
-                <a href="#/pagos">
-                    <i class="material-icons">content_paste</i>
-                    <p>Pagos</p>  <!-- //falta -->
+            <li ng-show="Piezas">
+                <a href="#/piezas">
+                    <i class="fa fa-puzzle-piece"></i>
+                    <p>Piezas</p>  <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Terrenos">
-                <a href="#/terrenos">
+            <li ng-show="Sensores">
+                <a href="#/sensores">
                     <i class="material-icons">location_on</i>
-                    <p>Terrenos</p>
+                    <p>Sensores</p>
                 </a>
             </li> 
-            <li ng-show="Mapa">
-                <a href="#/mapa">
-                    <i class="material-icons">map</i>
-                    <p>Mapa</p>
+            <li ng-show="Vehiculos">
+                <a href="#/vehiculos">
+                    <i class="fa fa-truck"></i>
+                    <p>Vehiculos</p>
                 </a>
             </li> 
-            <li ng-show="Recursos">
-                <a href="#/videos">
-                    <i class="material-icons">perm_media</i>
-                    <p>Recursos</p>
+            <li ng-show="Calendario">
+                <a href="#/calendario" class="active">
+                    <i class="fa fa-calendar"></i>
+                    <p>Calendario</p>
                 </a>
             </li>
         </ul>
@@ -88,8 +88,8 @@
             
           </div>
           
-            <div class="content">
 
+            <div class="content">
 
 
 
@@ -114,21 +114,19 @@
 	<div class="row">
 	         
 	    <div class="col-md-12">
-	    	<button ng-click="ndepositomas();" class="btn btn-subir btn-success pull-right">Agregar al folio</button>	
+	    	<button ng-click="nvideo();" class="btn btn-subir btn-success pull-right">Subir imagen</button>
 	                 
 	        <div class="card">
 
 	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">{{title}}</h4>
-	                    <p>{{subtitle}}</p>
-	                    <div class="buscador">
+	                    <h4 class="title">Lista de recursos</h4>       
+						<div class="buscador">
 							<div class="form-group label-floating">
 								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar">
+								<input type="text" class="form-control blanca" placeholder="Buscar recurso" ng-model="buscar">
 							</div>
-						</div>       
+						</div>  
 	                </div><!-- CARD HEADER -->
-	                
 	                            
 	                <div class="card-content table-responsive">
 	                    
@@ -137,35 +135,36 @@
 							<img src="./img/load.gif">
 						</div><!-- CONTENT LOAD -->
 
-						<div class="content-load" ng-if="vacio">
+						<!-- <div class="content-load" ng-if="vacio">
 							<h3>No hay ningún elemento</h3>
-						</div><!-- CONTENT LOAD -->
+						</div> -->
 
 	                    <table class="table" ng-if="!cargando">
 	                        <thead class="text-primary">
-                                <th>Lote</th>
-	                            <th>Manzana</th>
-								<th>Ingreso banco</th>
-								<th>Pagos justificados</th>
-								<th>Concepto</th>
-								<th>Observaciones</th>
-								<th>Acciones</th>
+	                            <th>Portada</th>
+	                            <th>Título</th>
+	                            <th>Tipo</th>
+	                            <th>Acciones</th>
 	                        </thead>
-	                        <tbody>
+	                        <tbody id="dataVideos">
 
-	                            <tr ng-repeat="detallesdeposito in detallesdepositos | filter: buscador">
-                                    <td>{{detallesdeposito.lote}}</td>
-	                                <td>{{detallesdeposito.manzana}}</td>
-	                                <td>{{detallesdeposito.pago_ingreso}}</td>
-	                                <td>{{detallesdeposito.pago_justificado}}</td>
-	                                <td>{{detallesdeposito.concepto}}</td>
-									<td>{{detallesdeposito.observaciones}}</td>
-									<td> 
-										<a ng-click="editdepositomas(detallesdeposito.idDetalleDeposito);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-										<a ng-click="deletedepositomas(detallesdeposito.idDetalleDeposito);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+	                            <tr ng-repeat="recurso in recursos | filter: buscar">
+	                            	<td>
+	                            		<img ng-src="{{url}}{{recurso.imagenpeque}}" style="width: 150px; border-radius: 10px;">
+	                            	</td>
+	                                <td>{{recurso.titulo}}</td>
+	                                <td>
+	                                	<!-- <i ng-if="recurso.tipo == 'img' " class="material-icons">camera_roll</i> -->
+	                                	<p ng-if="recurso.tipo == 'img' ">Imagen</p>
+
+	                                	<!-- <i ng-if="recurso.tipo == 'video' " class="material-icons">photo_camera</i> -->
+	                                	<p ng-if="recurso.tipo == 'video' ">Video</p>
+	                                </td>
+	                                <td> 
+										<a ng-click="delevideo(recurso.idRecurso)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
 									</td>
-	                            </tr>  
-
+	                            </tr>
+	                                        
 	                        </tbody>
 	               		</table><!-- TABLE -->
 
@@ -209,8 +208,7 @@
 
 
 
+
 </div><!-- content -->
 
-      <div ng-include="pie"></div>
-
-	
+        <div ng-include="pie"></div>

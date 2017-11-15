@@ -2,14 +2,14 @@ var app = angular.module('FormsCtrl', []);
 
 app.controller('FormsCtrl',  ['$scope', function ($scope) {
 
-	$scope.clienteV      = "./formularios/cliente.ventana.html";
-	$scope.depositosV    = "./formularios/depositos.ventana.html";
-	$scope.empleadosV    = "./formularios/empleados.ventana.html";
-	$scope.masdepositosV = "./formularios/mas-depositos.ventana.html";
-	$scope.maspagosV     = "./formularios/mas-pagos.ventana.html";
-	$scope.pagosV        = "./formularios/pagos.ventana.html";
-	$scope.terrenosV     = "./formularios/terrenos.ventana.html";
-	$scope.videosV       = "./formularios/videos.ventana.html";
+	$scope.choferesV      = "./formularios/choferes.ventana.html";
+	$scope.rutasV    = "./formularios/rutas.ventana.html";
+	$scope.mantenimientoV    = "./formularios/mantenimiento.ventana.html";
+	$scope.masrutasV = "./formularios/mas-rutas.ventana.html";
+	$scope.vehiculosV     = "./formularios/vehiculos.ventana.html";
+	$scope.piezasV        = "./formularios/piezas.ventana.html";
+	$scope.sensoresV    = "./formularios/sensores.ventana.html";
+	$scope.calendarioV       = "./formularios/calendario.ventana.html";
 
 	$scope.abir = 0;
 	$scope.btnMenu = function(id){

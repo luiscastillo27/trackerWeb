@@ -1,6 +1,6 @@
-var app = angular.module('PagoMasCtrl', []);
+var app = angular.module('RutasCtrl', []);
 
-app.controller('PagoMasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+app.controller('RutasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
@@ -26,6 +26,7 @@ app.controller('PagoMasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locSt
         $("#vNuevoCln").fadeIn(0);
         $("#vNuevoCln").addClass('animated rubberBand'); 
     }
-   
+
+	
 }]);
 

@@ -1,8 +1,8 @@
-var app = angular.module('DepositosCtrl', []);
+var app = angular.module('RutasMasCtrl', []);
 
-app.controller('DepositosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
-
-    //auth.redirectIfNotExists();
+app.controller('RutasMasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+   	
+   // auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
 
     // restApi.call({
@@ -27,6 +27,6 @@ app.controller('DepositosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'loc
         $("#vNuevoCln").addClass('animated rubberBand'); 
     }
 
-	
+
 }]);
 
