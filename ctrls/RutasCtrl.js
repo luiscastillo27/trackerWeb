@@ -21,10 +21,10 @@ app.controller('RutasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr'
  //        }
  //    });
     
-    $scope.ncliente = function(){
+    $scope.nrutas = function(){
         $(".modal-bg").fadeIn(0);
-        $("#vNuevoCln").fadeIn(0);
-        $("#vNuevoCln").addClass('animated rubberBand'); 
+        $("#vNuevaRuta").fadeIn(0);
+        $("#vNuevaRuta").addClass('animated rubberBand'); 
     }
 
 	

@@ -21,10 +21,10 @@ app.controller('PiezasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr
  //        }
  //    });
     
-    $scope.ncliente = function(){
+    $scope.npiezas = function(){
         $(".modal-bg").fadeIn(0);
-        $("#vNuevoCln").fadeIn(0);
-        $("#vNuevoCln").addClass('animated rubberBand'); 
+        $("#vNuevoPiezas").fadeIn(0);
+        $("#vNuevoPiezas").addClass('animated rubberBand'); 
     }
       
 }]);

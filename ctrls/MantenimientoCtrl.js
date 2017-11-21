@@ -21,10 +21,10 @@ app.controller('MantenimientoCtrl', ['$scope', 'restApi', '$location', 'auth', '
  //        }
  //    });
     
-    $scope.ncliente = function(){
+    $scope.nmantenimiento = function(){
         $(".modal-bg").fadeIn(0);
-        $("#vNuevoCln").fadeIn(0);
-        $("#vNuevoCln").addClass('animated rubberBand'); 
+        $("#vMantenimiento").fadeIn(0);
+        $("#vMantenimiento").addClass('animated rubberBand'); 
     }
 
 
