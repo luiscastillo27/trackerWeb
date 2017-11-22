@@ -115,16 +115,16 @@
 	<div class="row">
 	         
 	    <div class="col-md-12">
-	    	<button ng-if="tipoUsr" ng-click="nterreno();" class="btn btn-subir btn-success pull-right">Nuevo terreno</button>
+	    	<button ng-click="nsensor();" class="btn btn-subir btn-success pull-right">Nuevo sensor</button>
 	                 
 	        <div class="card">
 
 	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">Lista de terrenos</h4>       
+	                    <h4 class="title">Lista de sensores</h4>       
 						<div class="buscador">
 							<div class="form-group label-floating">
 								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" placeholder="Buscar terreno" ng-model="buscador">
+								<input type="text" class="form-control blanca" placeholder="Buscar sensor" ng-model="buscador">
 							</div>
 						</div>  
 	                </div><!-- CARD HEADER -->
@@ -142,11 +142,8 @@
 
 	                    <table class="table" ng-if="!cargando">
 	                        <thead class="text-primary">
-	                            <th>No. Lote</th>
-	                            <th>Manzana</th>
-	                            <th>Costo</th>
-								<th>Disponibilidad</th>
-								<th ng-if="tipoUsr">Acciones</th>
+	                            <th>Nombre de sensor</th>
+	                            <th>Stock</th>
 	                        </thead>
 	                        <tbody id="dataTerrenos">
 

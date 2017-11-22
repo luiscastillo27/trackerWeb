@@ -1,6 +1,6 @@
 var app = angular.module('RutasMasCtrl', []);
 
-app.controller('RutasMasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+app.controller('RutasMasCtrl',  ['$scope', 'restApi', '$location', 'auth', '$routeParams', function ($scope, restApi, $location, auth, $routeParams) {
    	
    // auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';

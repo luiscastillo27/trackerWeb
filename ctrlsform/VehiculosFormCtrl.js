@@ -1,6 +1,6 @@
 var app = angular.module('VehiculosFormCtrl', []);
 
-app.controller('VehiculosFormCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+app.controller('VehiculosFormCtrl',  ['$scope', 'restApi', '$location', 'auth', '$routeParams', function ($scope, restApi, $location, auth, $routeParams) {
 
     console.log("VehiculosFormCtrl");
 

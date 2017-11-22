@@ -1,6 +1,6 @@
 var app = angular.module('ChoferesLoadCtrl', []);
 
-app.controller('ChoferesLoadCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+app.controller('ChoferesLoadCtrl', ['$scope', 'restApi', '$location', 'auth', '$routeParams', function ($scope, restApi, $location, auth,  $routeParams) {
 
 	$scope.idParams = $routeParams.id; 
 	if($scope.idParams === 'choferes'){

@@ -1,6 +1,6 @@
 var app = angular.module('VehiculosCtrl', []);
 
-app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', '$routeParams', function ($scope, restApi, $location, auth,  $routeParams) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
@@ -21,10 +21,10 @@ app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'loc
  //        }
  //    });
     
-    $scope.ncliente = function(){
+    $scope.nvehiculo = function(){
         $(".modal-bg").fadeIn(0);
-        $("#vNuevoCln").fadeIn(0);
-        $("#vNuevoCln").addClass('animated rubberBand'); 
+        $("#vNuevoVehiculo").fadeIn(0);
+        $("#vNuevoVehiculo").addClass('animated rubberBand'); 
     }
    
 }]);

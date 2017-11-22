@@ -1,55 +1,26 @@
 
-	<div id="vNuevoTrn" class="ventana">
+	<div id="vNuevoSensor" class="ventana">
 		<div class="title-ventana green">
-			Nuevo terreno
+			Nuevo Sensor
 		</div>
 		
 		<div class="body-ventana">
 			<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
 				
-				<form role="form" name="formNuevoTerreno">
+				<form role="form" name="formNuevoSensor">
 					
-					<div class="row">
-						<div class="col-xs-4">
+				
+						<div class="row">
+						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Lote</label>
-								<input type="text" class="form-control" ng-model="terreno.lote" required>
+								<label class="control-label">Nombre pieza</label>
+								<input type="text" class="form-control" ng-model="pago.folio_contrato">
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Manzana</label>
-								<div class="margintop"></div>
-							 	<select id="" name="disponibilidad" ng-model="terreno.manzana" required>
-									<option value="1" selected>Manzana 1</option>
-									<option value="2">Manzana 2</option>
-									<option value="3">Manzana 3</option>
-									<option value="4">Manzana 4</option>
-									<option value="5">Manzana 5</option>
-									<option value="6">Manzana 6</option>
-									<option value="7">Manzana 7</option>
-									<option value="8">Manzana 8</option>
-									<option value="9">Manzana 9</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="form-group label-floating">
-								<label class="control-label">Costo</label>
-								<input type="text" class="form-control" ng-model="terreno.costo" required>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="form-group label-floating">
-								<label class="control-label">Nombre del cliente</label>
-								<div class="margintop"></div>
-								<select ng-model="terreno.idCliente" required pattern="[0-9]+">
-									<option value="0" selected>Ninguno</option>
-									<option ng-repeat="listaDisponible in listaDisponibles" value="{{listaDisponible.idCliente}}" selected>{{listaDisponible.nombre_completo}}</option>
-								</select>
+								<label class="control-label">Stock</label>
+								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
 							</div>
 						</div>
 					</div>
@@ -84,46 +55,16 @@
 				<form role="form" name="formEditarTerreno">
 					
 					<div class="row">
-						<div class="col-xs-4">
+						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Lote</label>
-								<input type="text" class="form-control" id="lote" required>
+								<label class="control-label">Nombre pieza</label>
+								<input type="text" class="form-control" ng-model="pago.folio_contrato">
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Manzana</label>
-								<div class="margintop"></div>
-								<select name="disponibilidad" id="manzana" required>
-									<option value="1" selected>Manzana 1</option>
-									<option value="2">Manzana 2</option>
-									<option value="3">Manzana 3</option>
-									<option value="4">Manzana 4</option>
-									<option value="5">Manzana 5</option>
-									<option value="6">Manzana 6</option>
-									<option value="7">Manzana 7</option>
-									<option value="8">Manzana 8</option>
-									<option value="9">Manzana 9</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="form-group label-floating">
-								<label class="control-label">Costo</label>
-								<input type="text" class="form-control" id="costo" required>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-12">
-							<div class="form-group label-floating">
-								<label class="control-label">Nombre del cliente</label>
-								<div class="margintop"></div>
-								<select id="idClientes" required>
-									<option value="0" selected>Ninguno</option>
-									<option ng-repeat="listaDisponible in listaDisponibles" value="{{listaDisponible.idCliente}}" selected>{{listaDisponible.nombre_completo}}</option>
-								</select>
+								<label class="control-label">Stock</label>
+								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
 							</div>
 						</div>
 					</div>

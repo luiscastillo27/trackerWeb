@@ -1,6 +1,6 @@
 var app = angular.module('PiezasCtrl', []);
 
-app.controller('PiezasCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('PiezasCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';

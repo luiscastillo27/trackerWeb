@@ -1,6 +1,6 @@
 var app = angular.module('MantenimientoFormCtrl', []);
 
-app.controller('MantenimientoFormCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('MantenimientoFormCtrl', ['$scope', 'restApi', '$location', 'auth',  function ($scope, restApi, $location, auth) {
 
    console.log("MantenimientoFormCtrl");
 

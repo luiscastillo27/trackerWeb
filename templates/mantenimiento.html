@@ -119,11 +119,11 @@
 	        <div class="card">
 
 	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">Lista de empleados</h4>      
+	                    <h4 class="title">Lista de mantenimientos</h4>      
 						<div class="buscador">
 							<div class="form-group label-floating">
 								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" placeholder="Buscar empleado" ng-model="buscador">
+								<input type="text" class="form-control blanca" placeholder="Buscar mantenimiento" ng-model="buscador">
 							</div>
 						</div>  
 	                </div><!-- CARD HEADER -->
@@ -141,20 +141,21 @@
 	                    
 	                    <table class="table" ng-if="!cargando">
 	                        <thead class="text-primary">
-	                            <th>Nombre</th>
-	                            <th>Puesto</th>
-	                            <th>Correo electronico</th>
-	                            <th>Acciones</th>
+	                            <th>Vehiculo</th>
+	                            <th>Coordenadas</th>
+	                            <th>Tipo</th>
+	                            <th>Fecha inicio</th>
+                                <th>Fecha termino</th>
 	                        </thead>
-	                       	<tbody id="dataEmpleados">
+	                       	<tbody id="dataMantenimiento">
 
-	                            <tr ng-repeat="empleado in empleados | filter: buscador">
-	                                <td>{{empleado.nombre}}</td>
-	                                <td>{{empleado.puesto}}</td>
-	                                <td>{{empleado.correo}}</td>
+	                            <tr ng-repeat="mantenimiento in mantenimientos | filter: buscador">
+	                                <td>{{mantenimiento.idVehiculo}}</td>
+	                                <td>{{mantenimiento.idCoordenada}}</td>
+	                                <td>{{mantenimiento.tipo}}</td>
 	                                <td> 
-										<a ng-click="editempleado(empleado.idEmpleado)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-										<a ng-if="empleado.puesto != 'Administrador' " ng-click="deletempleado(empleado.idEmpleado)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+										<a ng-click="editmantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+										<a ng-if="mantenimiento.puesto != 'Administrador' " ng-click="delemantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
 									</td>
 	                            </tr>
 	                                        

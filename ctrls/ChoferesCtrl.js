@@ -1,6 +1,6 @@
 var app = angular.module('ChoferesCtrl', []);
 
-app.controller('ChoferesCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr',function ($scope, restApi, $location, auth, locStr) {
+app.controller('ChoferesCtrl', ['$scope', 'restApi', '$location', 'auth',function ($scope, restApi, $location, auth) {
 
 	//auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
@@ -21,10 +21,10 @@ app.controller('ChoferesCtrl', ['$scope', 'restApi', '$location', 'auth', 'locSt
  //        }
  //    });
     
-	$scope.ncliente = function(){
+	$scope.nchofer = function(){
 		$(".modal-bg").fadeIn(0);
-		$("#vNuevoCln").fadeIn(0);
-        $("#vNuevoCln").addClass('animated rubberBand'); 
+		$("#vNuevoChofer").fadeIn(0);
+        $("#vNuevoChofer").addClass('animated rubberBand'); 
 	}
 	
 

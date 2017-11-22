@@ -1,6 +1,6 @@
 var app = angular.module('SensoresCtrl', []);
 
-app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr',  function ($scope, restApi, $location, auth, locStr) {
+app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth',  function ($scope, restApi, $location, auth) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
@@ -21,10 +21,10 @@ app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth', 'locSt
  //        }
  //    });
     
-    $scope.ncliente = function(){
+    $scope.nsensor = function(){
         $(".modal-bg").fadeIn(0);
-        $("#vNuevoCln").fadeIn(0);
-        $("#vNuevoCln").addClass('animated rubberBand'); 
+        $("#vNuevoSensor").fadeIn(0);
+        $("#vNuevoSensor").addClass('animated rubberBand'); 
     }
 
 

@@ -1,29 +1,29 @@
 
-	<div id="vNuevoPgsMs" class="ventana">
+	<div id="vNuevoVehiculo" class="ventana">
 			<div class="title-ventana green">
-				Nueva mensualidad
+				Nuevo vehiculo
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
-				<form role="form" name="formNuevoPagoMas">
+				<form role="form" name="formNuevoVehiculo">
 
 					<div class="row">
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Fin contrato</label>
-								<input type="date" class="form-control" ng-model="pagosmas.vencimiento_contrato" required>
+								<label class="control-label">Usuarios</label>
+								<input type="text" class="form-control" ng-model="deposito.folio" >
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Folio deslinde</label>
-								<input type="text" class="form-control" ng-model="pagosmas.folio_deslinde" required pattern="[0-9]+">
+								<label class="control-label">Marca</label>
+								<input type="text" class="form-control" ng-model="pagosmas.folio_deslinde" >
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Folio enganche</label>
-								<input type="text" class="form-control" ng-model="pagosmas.folio_enganche" required pattern="[0-9]+">
+								<label class="control-label">Modelo</label>
+								<input type="text" class="form-control" ng-model="pagosmas.folio_enganche" >
 							</div>
 						</div>
 					</div>
@@ -31,14 +31,20 @@
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Deslinde</label>
+								<label class="control-label">Matricula</label>
 								<input type="text" class="form-control" ng-model="pagosmas.deslinde" required  minlength="4">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Enganche</label>
-								<input type="text" class="form-control" ng-model="pagosmas.enganche" required pattern="[0-9]+" minlength="2">
+								<label class="control-label">Tipo</label>
+								<input type="text" class="form-control" ng-model="pagosmas.enganche"  minlength="2">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Anio</label>
+								<input type="text" class="form-control">
 							</div>
 						</div>
 					</div>

@@ -1,6 +1,6 @@
 var app = angular.module('RutasMasFormCtrl', []);
 
-app.controller('RutasMasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', '$routeParams', function ($scope, restApi, $location, auth, locStr, $routeParams) {
+app.controller('RutasMasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', '$routeParams', function ($scope, restApi, $location, auth, $routeParams) {
    	
    console.log("RutasMasFormCtrl");
 

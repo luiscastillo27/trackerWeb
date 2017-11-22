@@ -1,31 +1,44 @@
 var app = angular.module('LoginCtrl', []);
 
-app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
-    if(!auth.hasToken()){
+ if(!auth.hasToken()){
         $scope.pie = './templates/pie.html';
-    	$scope.pie = './templates/pie.html';
-
-        // restApi.call({
-     //        method: 'get',
-     //        url: 'terrenos/listarDisponibles',
-     //        response: function (resp) { 
-     //         $scope.listaDisponibles = resp; 
-     //        },
-     //        error: function (error) {
-     //            console.log(error);
-     //            $location.path('load/errorserver');
-     //        },
-     //        validationError: function (validerror) {
-     //            console.log(validerror);
-     //            $location.path('load/errorvalidate');
-     //        }
-     //    });
+        $scope.vacio =  function(){
+            $scope.login = {
+                usuario:undefined,
+                contrasena:undefined
+            }
+        }
         
-        $scope.ncliente = function(){
-            $(".modal-bg").fadeIn(0);
-            $("#vNuevoCln").fadeIn(0);
-            $("#vNuevoCln").addClass('animated rubberBand'); 
+        $scope.login = function(){
+            
+            var data = {
+                usuario: $scope.login.usuario,
+                contrasena: $scope.login.contrasena
+            }
+         
+            $("#loadLogin").slideDown();
+            $("#errorServidor").slideUp();
+            $("#RedencialesInvalidas").slideUp();
+
+            restApi.call({
+                method: 'post',
+                url: 'auth/autenticar',
+                data: data,
+                response: function (resp) {   
+                   console.log(resp);
+                },
+                error: function (error) {
+                    console.log(error);
+                   //$location.path('load/errorserver');
+                },
+                validationError: function (validerror) {
+                    console.log(validerror);
+                    //$location.path('load/errorvalidate');
+                }
+            });
+
         }
 
     

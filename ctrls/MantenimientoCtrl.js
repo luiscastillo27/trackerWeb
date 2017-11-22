@@ -1,6 +1,6 @@
 var app = angular.module('MantenimientoCtrl', []);
 
-app.controller('MantenimientoCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('MantenimientoCtrl', ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
@@ -20,6 +20,7 @@ app.controller('MantenimientoCtrl', ['$scope', 'restApi', '$location', 'auth', '
  //            $location.path('load/errorvalidate');
  //        }
  //    });
+ 
     
     $scope.nmantenimiento = function(){
         $(".modal-bg").fadeIn(0);

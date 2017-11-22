@@ -1,6 +1,6 @@
 var app = angular.module('PiezasFormCtrl', []);
 
-app.controller('PiezasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('PiezasFormCtrl',  ['$scope', 'restApi', '$location', 'auth',function ($scope, restApi, $location, auth) {
 
     console.log("PiezasFormCtrl");
 

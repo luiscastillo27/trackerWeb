@@ -2,8 +2,8 @@
   
       <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
     
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+      <!-- 
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red" 
       -->
         <div class="logo">
         <div class="logo-img">
@@ -115,16 +115,16 @@
 	<div class="row">
 	         
 	    <div class="col-md-12">
-	    	<button ng-click="npiezas();" class="btn btn-subir btn-success pull-right">Nuevo pago</button>
+	    	<button ng-click="npiezas();" class="btn btn-subir btn-success pull-right">Nueva pieza</button>
 	                 
 	        <div class="card">
 
 	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">Lista de pagos</h4>       
+	                    <h4 class="title">Lista de piezas</h4>       
 						<div class="buscador">
 							<div class="form-group label-floating">
 								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar pago">
+								<input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar pieza">
 							</div>
 						</div>  
 	                </div><!-- CARD HEADER -->
@@ -142,21 +142,14 @@
 
 	                    <table class="table" ng-if="!cargando">      
 	                        <thead class="text-primary">
-	                            <th>Folio contrato</th>
-	                            <th>Lote</th>
-	                            <th>Manzana</th>
-								<th>Fecha I/C</th>
-								<th>Nombre del cliente</th>
-								<th>Acciones</th>
+	                            <th>Nombre pieza</th>
+	                            <th>Stock</th>
 	                        </thead>
 	                        <tbody id="dataPagos">
 
 	                            <tr ng-repeat="pago in pagos | filter: buscador">
 	                                <td>{{pago.folio_contrato}}</td>
 	                                <td>{{pago.lote}}</td>
-	                                <td>{{pago.manzana}}</td>
-	                                <td>{{pago.fecha}}</td>
-	                                <td>{{pago.nombre_completo}}</td>
 									<td> 
 										<a ng-click="editpago(pago.idPago);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
 										<a ng-click="verpago(pago.idPago);" class="icon-accions fa fa-eye" aria-hidden="true"></a>

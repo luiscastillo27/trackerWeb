@@ -1,6 +1,6 @@
 var app = angular.module('CalendarioFormCtrl', []);
 
-app.controller('CalendarioFormCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', 'restApiImg', function ($scope, restApi, $location, auth, locStr, restApiImg) {
+app.controller('CalendarioFormCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
     console.log("CalendarioFormCtrl");
 

@@ -1,6 +1,6 @@
 var app = angular.module('CalendarioCtrl', []);
 
-app.controller('CalendarioCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', 'restApiImg', function ($scope, restApi, $location, auth, locStr, restApiImg) {
+app.controller('CalendarioCtrl',  ['$scope', 'restApi', '$location', 'auth',  function ($scope, restApi, $location, auth) {
 
     //auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
