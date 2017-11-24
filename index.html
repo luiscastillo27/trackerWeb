@@ -2,17 +2,15 @@
 <html>
 	<head>
   	  <meta charset="utf-8" />
-      <title>Transportes!</title>
-      <!-- <base href="/"> -->
+      <title>Desarrollo campestre la cruz</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="author" content="Luis Castillo Z | iWebsapp |">
       <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
-      
-      <link href="./css/bootstrap.min.css" rel="stylesheet" />
-      <link href="./css/material-dashboard.css" rel="stylesheet"/>
-      <link href="./css/material-icons.css" rel='stylesheet'>
-      <link href="./css/font-awesome.min.css" rel="stylesheet" >
-      <link href="./css/estilos.css" rel="stylesheet" />
+      <link href="css/bootstrap.min.css" rel="stylesheet" />
+      <link href="css/material-dashboard.css" rel="stylesheet"/>
+      <link href="css/material-icons.css" rel='stylesheet'>
+      <link href="css/font-awesome.min.css" rel="stylesheet" >
+      <link href="css/estilos.css" rel="stylesheet" />
       <link rel="shortcut icon" href="img/icon.png">
 	</head>
   <body ng-app="jimApp">
@@ -24,14 +22,12 @@
      
             <div class="forms" ng-controller="FormsCtrl">
                 <div class="modal-bg">
-                    <div ng-include="choferesV" ng-controller="ChoferesFormCtrl"></div>
-                    <div ng-include="masrutasV" ng-controller="RutasMasFormCtrl"></div>
-                    <div ng-include="rutasV" ng-controller="RutasFormCtrl"></div>
-                    <div ng-include="mantenimientoV" ng-controller="MantenimientoFormCtrl"></div>
-                    <div ng-include="vehiculosV" ng-controller="VehiculosFormCtrl" ></div>
-                    <div ng-include="piezasV" ng-controller="PiezasFormCtrl"></div>
-                    <div ng-include="sensoresV" ng-controller="SensoresFormCtrl"></div>
-                    <div ng-include="calendarioV" ng-controller="CalendarioFormCtrl"></div>
+                    <div ng-include="clienteV" ng-controller="ChoferesFormCtrl"></div>
+                    <div ng-include="depositosV" ng-controller="RutasFormCtrl"></div>
+                    <div ng-include="empleadosV" ng-controller="MantenimientoFormCtrl"></div>
+                    <div ng-include="pagosV" ng-controller="PiezasFormCtrl"></div>
+                    <div ng-include="terrenosV" ng-controller="SensoresFormCtrl"></div>
+                    <div ng-include="videosV" ng-controller="VehiculosFormCtrl"></div>
                 </div>
             </div>  
 
@@ -41,7 +37,6 @@
   
 
     <script src="js/jquery.min.js"></script>
-   
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
@@ -56,30 +51,21 @@
     <script src="ctrls/AccesoCtrl.js"></script> 
     <script src="ctrls/EditarPerfilCtrl.js"></script>
     <script src="ctrls/PerfilCtrl.js"></script>
-    <script src="ctrls/MenuCtrl.js"></script>
     <script src="ctrls/LoginCtrl.js"></script>
     
     <script src="ctrls/ChoferesCtrl.js"></script>
-    
     <script src="ctrls/RutasCtrl.js"></script> 
     <script src="ctrls/MantenimientoCtrl.js"></script>
-    <script src="ctrls/RutasMasCtrl.js"></script>
     <script src="ctrls/PiezasCtrl.js"></script> 
     <script src="ctrls/SensoresCtrl.js"></script>
-    <script src="ctrls/CalendarioCtrl.js"></script>
     <script src="ctrls/VehiculosCtrl.js"></script>
 
-    <script src="ctrlsform/ChoferesFormCtrl.js"></script> 
-    <script src="ctrlsform/RutasMasFormCtrl.js"></script>
+    <script src="ctrlsform/ChoferesFormCtrl.js"></script>
     <script src="ctrlsform/RutasFormCtrl.js"></script> 
     <script src="ctrlsform/MantenimientoFormCtrl.js"></script>
-
     <script src="ctrlsform/PiezasFormCtrl.js"></script> 
     <script src="ctrlsform/SensoresFormCtrl.js"></script>
-    <script src="ctrlsform/CalendarioFormCtrl.js"></script>
     <script src="ctrlsform/VehiculosFormCtrl.js"></script>
-
-    <script src="ctrls/ChoferesLoadCtrl.js"></script>
 
   </body>
 </html>

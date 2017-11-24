@@ -34,27 +34,23 @@ app.config(['$routeProvider', '$locationProvider',  function($routeProvider, $lo
           controller: 'RutasCtrl',
           templateUrl: 'templates/rutas.html'
         })
-        .when('/rutas/:id', {
-          controller: 'RutasMasCtrl',
-          templateUrl: 'templates/masrutas.html'
+        .when('/deposito/:id', {
+          controller: 'DepositoMasCtrl',
+          templateUrl: 'templates/masdepositos.html'
         })
         .when('/piezas', {
           controller: 'PiezasCtrl',
           templateUrl: 'templates/piezas.html'
         })
-        .when('/piezas/:id', {
-          controller: 'PiezasMasCtrl',
+        .when('/pago/:id', {
+          controller: 'PagoMasCtrl',
           templateUrl: 'templates/maspagos.html'
         })
         .when('/sensores', {
           controller: 'SensoresCtrl',
           templateUrl: 'templates/sensores.html'
         })
-        .when('/mapa', {
-          templateUrl: 'templates/mapa.html'
-        })
         .when('/calendario', {
-          controller: 'CalendarioCtrl',
           templateUrl: 'templates/calendario.html'
         })
         .when('/vehiculos', {

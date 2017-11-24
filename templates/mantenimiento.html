@@ -1,11 +1,11 @@
-<div class="wrapper" ng-controller="MenuCtrl">
+<div class="wrapper">
   
       <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
     
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
       -->
-        <div class="logo">
+      <div class="logo">
         <div class="logo-img">
           <img src="img/logo.png" alt="">
         </div>
@@ -13,50 +13,44 @@
 
       <div class="sidebar-wrapper">
                 
-        <ul class="nav">
-            <li ng-show="Perfil">
-                <a href="#/perfil">
-                    <i class="material-icons">person</i>
-                    <p>Perfil</p>
-                </a>
-            </li>   
-            <li ng-show="Choferes">
+        <ul class="nav"> 
+            <li>
                 <a href="#/choferes">
                     <i class="fa fa-users"></i>
                     <p>Choferes</p>
                 </a>
             </li>
-            <li ng-show="Rutas">
+            <li>
                 <a href="#/rutas">
                     <i class="fa fa-rocket"></i>
                     <p>Rutas</p> <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Mantenimiento">
+            <li>
                 <a href="#/mantenimiento" class="active">
                   <i class="fa fa-cogs"></i>
                     <p>Mantenimiento</p>
                 </a>
             </li>
-            <li ng-show="Piezas">
+            <li>
                 <a href="#/piezas">
                     <i class="fa fa-puzzle-piece"></i>
                     <p>Piezas</p>  <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Sensores">
+            <li>
                 <a href="#/sensores">
                     <i class="material-icons">location_on</i>
                     <p>Sensores</p>
                 </a>
             </li> 
-            <li ng-show="Vehiculos">
+            <li>
                 <a href="#/vehiculos">
                     <i class="fa fa-truck"></i>
                     <p>Vehiculos</p>
                 </a>
             </li> 
-            <li ng-show="Calendario">
+            <li>
                 <a href="#/calendario">
                     <i class="fa fa-calendar"></i>
                     <p>Calendario</p>
@@ -110,74 +104,74 @@
 
 <!-- AQUI EDITAR -->
 <div class="container-fluid">
-	           
-	<div class="row">
-	         
-	    <div class="col-md-12">
-	    	<button ng-click="nmantenimiento();" class="btn btn-subir btn-success pull-right">Nuevo mantenimiento</button>
-	                 
-	        <div class="card">
+               
+    <div class="row">
+             
+        <div class="col-md-12">
+            <button ng-click="nmantenimiento();" class="btn btn-subir btn-success pull-right">Nuevo mantenimiento</button>
+                     
+            <div class="card">
 
-	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">Lista de mantenimientos</h4>      
-						<div class="buscador">
-							<div class="form-group label-floating">
-								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" placeholder="Buscar mantenimiento" ng-model="buscador">
-							</div>
-						</div>  
-	                </div><!-- CARD HEADER -->
-	                            
-	                <div class="card-content table-responsive">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Lista de mantenimientos</h4>      
+                        <div class="buscador">
+                            <div class="form-group label-floating">
+                                <label class="control-label"></label>
+                                <input type="text" class="form-control blanca" placeholder="Buscar mantenimiento" ng-model="buscador">
+                            </div>
+                        </div>  
+                    </div><!-- CARD HEADER -->
+                                
+                    <div class="card-content table-responsive">
 
-	                	<div class="content-load" ng-if="cargando">
-							<h3>Cargando contenido</h3>
-							<img src="./img/load.gif">
-						</div><!-- CONTENT LOAD -->
+                        <div class="content-load" ng-if="cargando">
+                            <h3>Cargando contenido</h3>
+                            <img src="./img/load.gif">
+                        </div><!-- CONTENT LOAD -->
 
-						<div class="content-load" ng-if="vacio">
-							<h3>No hay ningún elemento</h3>
-						</div><!-- CONTENT LOAD -->
-	                    
-	                    <table class="table" ng-if="!cargando">
-	                        <thead class="text-primary">
-	                            <th>Vehiculo</th>
-	                            <th>Coordenadas</th>
-	                            <th>Tipo</th>
-	                            <th>Fecha inicio</th>
+                        <div class="content-load" ng-if="vacio">
+                            <h3>No hay ningún elemento</h3>
+                        </div><!-- CONTENT LOAD -->
+                        
+                        <table class="table" ng-if="!cargando">
+                            <thead class="text-primary">
+                                <th>Vehiculo</th>
+                                <th>Coordenadas</th>
+                                <th>Tipo</th>
+                                <th>Fecha inicio</th>
                                 <th>Fecha termino</th>
-	                        </thead>
-	                       	<tbody id="dataMantenimiento">
+                            </thead>
+                            <tbody id="dataMantenimiento">
 
-	                            <tr ng-repeat="mantenimiento in mantenimientos | filter: buscador">
-	                                <td>{{mantenimiento.idVehiculo}}</td>
-	                                <td>{{mantenimiento.idCoordenada}}</td>
-	                                <td>{{mantenimiento.tipo}}</td>
-	                                <td> 
-										<a ng-click="editmantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-										<a ng-if="mantenimiento.puesto != 'Administrador' " ng-click="delemantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
-									</td>
-	                            </tr>
-	                                        
-	                        </tbody>
-	                	</table><!-- TABLE -->
+                                <tr ng-repeat="mantenimiento in mantenimientos | filter: buscador">
+                                    <td>{{mantenimiento.idVehiculo}}</td>
+                                    <td>{{mantenimiento.idCoordenada}}</td>
+                                    <td>{{mantenimiento.tipo}}</td>
+                                    <td> 
+                                        <a ng-click="editmantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+                                        <a ng-if="mantenimiento.puesto != 'Administrador' " ng-click="delemantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                    </td>
+                                </tr>
+                                            
+                            </tbody>
+                        </table><!-- TABLE -->
 
-	            </div><!-- CARD CONTENT -->
+                </div><!-- CARD CONTENT -->
 
-	        </div><!-- CARD -->
+            </div><!-- CARD -->
 
-	    </div><!-- COL 12 -->
-	                    
-	</div><!-- ROW -->
+        </div><!-- COL 12 -->
+                        
+    </div><!-- ROW -->
 
-	    <div class="mostrar-caja" ng-if="exite">
-			<div class="mostrar-btn">
-				<a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar mas</a>
-			</div>
-			<div class="mostrar-img">
-				<img src="./img/load.gif" alt="">
-			</div>
-		</div>
+        <div class="mostrar-caja" ng-if="exite">
+            <div class="mostrar-btn">
+                <a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar mas</a>
+            </div>
+            <div class="mostrar-img">
+                <img src="./img/load.gif" alt="">
+            </div>
+        </div>
 
 </div><!-- CONTAINER -->
 <!-- AQUI EDITAR -->
@@ -204,4 +198,4 @@
 
        <div ng-include="pie"></div>
 
-	
+    

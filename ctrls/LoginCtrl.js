@@ -1,33 +1,43 @@
 var app = angular.module('LoginCtrl', []);
 
-app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
+app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
 
- if(!auth.hasToken()){
+    if(!auth.hasToken()){
         $scope.pie = './templates/pie.html';
-        $scope.vacio =  function(){
-            $scope.login = {
-                usuario:undefined,
-                contrasena:undefined
-            }
-        }
+    	$scope.vacio =  function(){
+    		$scope.login = {
+    			email:undefined,
+    			contrasena:undefined
+    		}
+    	}
         
-        $scope.login = function(){
+    	$scope.login = function(){
             
-            var data = {
-                usuario: $scope.login.usuario,
-                contrasena: $scope.login.contrasena
-            }
-         
-            $("#loadLogin").slideDown();
-            $("#errorServidor").slideUp();
-            $("#RedencialesInvalidas").slideUp();
+    		var data = {
+    			email: $scope.login.email,
+    			contrasena: $scope.login.contrasena
+    		}
+    		$("#loadLogin").slideDown();
+    		$("#errorServidor").slideUp();
+    		$("#RedencialesInvalidas").slideUp();
 
-            restApi.call({
+
+    		restApi.call({
                 method: 'post',
-                url: 'auth/autenticar',
+                url: 'usuarios/autenticar',
                 data: data,
                 response: function (resp) {   
-                   console.log(resp);
+                    $("#loadLogin").slideUp();
+                    console.log(resp);
+                    // if(resp.message == 'Haz ingresado correctamente'){
+                    //     auth.setToken(resp.result);
+                    //     $location.path('choferes');
+                    // }
+                    // if(resp.message == 'Credenciales no validas'){
+                    //     $("#RedencialesInvalidas").slideDown();
+                    // 	$scope.login.usuario = '';
+                    // 	$scope.login.contrasena = '';	
+                    // }
                 },
                 error: function (error) {
                     console.log(error);
@@ -39,7 +49,7 @@ app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', function
                 }
             });
 
-        }
+    	}
 
     
     } else {

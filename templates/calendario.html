@@ -1,4 +1,4 @@
-<div class="wrapper" ng-controller="MenuCtrl">
+<div class="wrapper">
   
       <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
     
@@ -13,50 +13,44 @@
 
       <div class="sidebar-wrapper">
                 
-        <ul class="nav">
-            <li ng-show="Perfil">
-                <a href="#/perfil">
-                    <i class="material-icons">person</i>
-                    <p>Perfil</p>
-                </a>
-            </li>   
-            <li ng-show="Choferes">
+        <ul class="nav">  
+            <li>
                 <a href="#/choferes">
                     <i class="fa fa-users"></i>
                     <p>Choferes</p>
                 </a>
             </li>
-            <li ng-show="Rutas">
+            <li>
                 <a href="#/rutas">
                     <i class="fa fa-rocket"></i>
                     <p>Rutas</p> <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Mantenimiento">
+            <li>
                 <a href="#/mantenimiento">
                   <i class="fa fa-cogs"></i>
                     <p>Mantenimiento</p>
                 </a>
             </li>
-            <li ng-show="Piezas">
+            <li>
                 <a href="#/piezas">
                     <i class="fa fa-puzzle-piece"></i>
                     <p>Piezas</p>  <!-- //falta -->
                 </a>
             </li>
-            <li ng-show="Sensores">
+            <li>
                 <a href="#/sensores">
                     <i class="material-icons">location_on</i>
                     <p>Sensores</p>
                 </a>
             </li> 
-            <li ng-show="Vehiculos">
+            <li>
                 <a href="#/vehiculos">
                     <i class="fa fa-truck"></i>
                     <p>Vehiculos</p>
                 </a>
             </li> 
-            <li ng-show="Calendario">
+            <li>
                 <a href="#/calendario" class="active">
                     <i class="fa fa-calendar"></i>
                     <p>Calendario</p>
@@ -110,80 +104,80 @@
 
 <!-- AQUI EDITAR -->
 <div class="container-fluid">
-	           
-	<div class="row">
-	         
-	    <div class="col-md-12">
-	    	<button ng-click="nvideo();" class="btn btn-subir btn-success pull-right">Subir imagen</button>
-	                 
-	        <div class="card">
+               
+    <div class="row">
+             
+        <div class="col-md-12">
+            <button ng-click="nvideo();" class="btn btn-subir btn-success pull-right">Subir imagen</button>
+                     
+            <div class="card">
 
-	                <div class="card-header" data-background-color="purple">
-	                    <h4 class="title">Lista de recursos</h4>       
-						<div class="buscador">
-							<div class="form-group label-floating">
-								<label class="control-label"></label>
-								<input type="text" class="form-control blanca" placeholder="Buscar recurso" ng-model="buscar">
-							</div>
-						</div>  
-	                </div><!-- CARD HEADER -->
-	                            
-	                <div class="card-content table-responsive">
-	                    
-	                    <div class="content-load" ng-if="cargando">
-							<h3>Cargando contenido</h3>
-							<img src="./img/load.gif">
-						</div><!-- CONTENT LOAD -->
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Lista de recursos</h4>       
+                        <div class="buscador">
+                            <div class="form-group label-floating">
+                                <label class="control-label"></label>
+                                <input type="text" class="form-control blanca" placeholder="Buscar recurso" ng-model="buscar">
+                            </div>
+                        </div>  
+                    </div><!-- CARD HEADER -->
+                                
+                    <div class="card-content table-responsive">
+                        
+                        <div class="content-load" ng-if="cargando">
+                            <h3>Cargando contenido</h3>
+                            <img src="./img/load.gif">
+                        </div><!-- CONTENT LOAD -->
 
-						<!-- <div class="content-load" ng-if="vacio">
-							<h3>No hay ningún elemento</h3>
-						</div> -->
+                        <!-- <div class="content-load" ng-if="vacio">
+                            <h3>No hay ningún elemento</h3>
+                        </div> -->
 
-	                    <table class="table" ng-if="!cargando">
-	                        <thead class="text-primary">
-	                            <th>Portada</th>
-	                            <th>Título</th>
-	                            <th>Tipo</th>
-	                            <th>Acciones</th>
-	                        </thead>
-	                        <tbody id="dataVideos">
+                        <table class="table" ng-if="!cargando">
+                            <thead class="text-primary">
+                                <th>Portada</th>
+                                <th>Título</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                            </thead>
+                            <tbody id="dataVideos">
 
-	                            <tr ng-repeat="recurso in recursos | filter: buscar">
-	                            	<td>
-	                            		<img ng-src="{{url}}{{recurso.imagenpeque}}" style="width: 150px; border-radius: 10px;">
-	                            	</td>
-	                                <td>{{recurso.titulo}}</td>
-	                                <td>
-	                                	<!-- <i ng-if="recurso.tipo == 'img' " class="material-icons">camera_roll</i> -->
-	                                	<p ng-if="recurso.tipo == 'img' ">Imagen</p>
+                                <tr ng-repeat="recurso in recursos | filter: buscar">
+                                    <td>
+                                        <img ng-src="{{url}}{{recurso.imagenpeque}}" style="width: 150px; border-radius: 10px;">
+                                    </td>
+                                    <td>{{recurso.titulo}}</td>
+                                    <td>
+                                        <!-- <i ng-if="recurso.tipo == 'img' " class="material-icons">camera_roll</i> -->
+                                        <p ng-if="recurso.tipo == 'img' ">Imagen</p>
 
-	                                	<!-- <i ng-if="recurso.tipo == 'video' " class="material-icons">photo_camera</i> -->
-	                                	<p ng-if="recurso.tipo == 'video' ">Video</p>
-	                                </td>
-	                                <td> 
-										<a ng-click="delevideo(recurso.idRecurso)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
-									</td>
-	                            </tr>
-	                                        
-	                        </tbody>
-	               		</table><!-- TABLE -->
+                                        <!-- <i ng-if="recurso.tipo == 'video' " class="material-icons">photo_camera</i> -->
+                                        <p ng-if="recurso.tipo == 'video' ">Video</p>
+                                    </td>
+                                    <td> 
+                                        <a ng-click="delevideo(recurso.idRecurso)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                    </td>
+                                </tr>
+                                            
+                            </tbody>
+                        </table><!-- TABLE -->
 
-	            </div><!-- CARD CONTENT -->
+                </div><!-- CARD CONTENT -->
 
-	        </div><!-- CARD -->
+            </div><!-- CARD -->
 
-	    </div><!-- COL 12 -->
-	                    
-	</div><!-- ROW -->
+        </div><!-- COL 12 -->
+                        
+    </div><!-- ROW -->
 
-	    <div class="mostrar-caja" ng-if="exite">
-			<div class="mostrar-btn">
-				<a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar mas</a>
-			</div>
-			<div class="mostrar-img">
-				<img src="./img/load.gif" alt="">
-			</div>
-		</div>
+        <div class="mostrar-caja" ng-if="exite">
+            <div class="mostrar-btn">
+                <a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar mas</a>
+            </div>
+            <div class="mostrar-img">
+                <img src="./img/load.gif" alt="">
+            </div>
+        </div>
 
 </div><!-- CONTAINER -->
 <!-- AQUI EDITAR -->

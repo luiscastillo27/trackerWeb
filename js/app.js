@@ -3,12 +3,12 @@
 //  window.location = "http://localhost/~Luis/terreno/angularjs/";
 // }
 
-var frontApp = angular.module('jimApp', ['ngRoute', 'Router', 'Services', 
-  'MenuCtrl', 'LoginCtrl', 'FormsCtrl', 'PerfilCtrl', 'AccesoCtrl'
-  , 'EditarPerfilCtrl','CalendarioCtrl' ,'ChoferesCtrl','ChoferesLoadCtrl',
-    'MantenimientoCtrl','PiezasCtrl','RutasCtrl','VehiculosCtrl','SensoresCtrl',
-    'CalendarioFormCtrl','ChoferesFormCtrl','MantenimientoFormCtrl','PiezasFormCtrl',
-    'VehiculosFormCtrl','RutasFormCtrl','RutasMasFormCtrl','SensoresFormCtrl' 
+var frontApp = angular.module('jimApp', ['ngRoute', 'Router', 'Services', 'ChoferesCtrl', 
+   'LoginCtrl', 'RutasCtrl' ,'MantenimientoCtrl', 'PiezasCtrl',
+  'SensoresCtrl', 'VehiculosCtrl', 'FormsCtrl', 'PerfilCtrl', 'AccesoCtrl'
+  , 'EditarPerfilCtrl',
+  'ChoferesFormCtrl', 'RutasFormCtrl', 'MantenimientoFormCtrl',
+  'PiezasFormCtrl', 'SensoresFormCtrl', 'VehiculosFormCtrl'
   ]);
 
 (function(){ 
