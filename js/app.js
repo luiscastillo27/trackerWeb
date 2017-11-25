@@ -4,18 +4,13 @@
 // }
 
 var frontApp = angular.module('jimApp', ['ngRoute', 'Router', 'Services', 'ChoferesCtrl', 
-   'LoginCtrl', 'RutasCtrl' ,'MantenimientoCtrl', 'PiezasCtrl',
-  'SensoresCtrl', 'VehiculosCtrl', 'FormsCtrl', 'PerfilCtrl', 'AccesoCtrl'
-  , 'EditarPerfilCtrl',
-  'ChoferesFormCtrl', 'RutasFormCtrl', 'MantenimientoFormCtrl',
-  'PiezasFormCtrl', 'SensoresFormCtrl', 'VehiculosFormCtrl'
+   'LoginCtrl', 'RutasCtrl' ,'MantenimientoCtrl', 'PiezasCtrl', 'SensoresCtrl', 'VehiculosCtrl', 
+   'FormsCtrl', 'PerfilCtrl', 'AccesoCtrl','EditarPerfilCtrl', 'ChoferesFormCtrl', 'RutasFormCtrl', 
+   'MantenimientoFormCtrl', 'PiezasFormCtrl', 'SensoresFormCtrl', 'VehiculosFormCtrl'
   ]);
 
 (function(){ 
     if(typeof(localStorage[API.token_name]) === 'undefined'){
         localStorage[API.token_name] = '';
-    }
-    if(typeof(localStorage['idGlobal']) === 'undefined'){
-        localStorage['idGlobal'] = '';
     }
 }());

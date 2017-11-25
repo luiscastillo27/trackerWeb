@@ -1,6 +1,6 @@
 var app = angular.module('RutasFormCtrl', []);
 
-app.controller('RutasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('RutasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
     
     $scope.clouse = function(){

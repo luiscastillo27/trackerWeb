@@ -1,9 +1,4 @@
 API = {
     'token_name': 'APP-TOKEN',
-    'base_url': 'http://localhost:2715'
+    'base_url': 'http://192.168.0.10:2715/'
 }; 
-
-// API = {
-//     'token_name': 'APP-TOKEN',
-//     'base_url': 'https://desarrollocampestrelacruz.net/api/public/'
-// }; 

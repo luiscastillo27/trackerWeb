@@ -1,8 +1,8 @@
 var app = angular.module('VehiculosCtrl', []);
 
-app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', 'restApiImg', function ($scope, restApi, $location, auth, locStr, restApiImg) {
+app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
-    //auth.redirectIfNotExists();
+    auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
     $scope.nvehiculo = function(){
         $(".modal-bg").fadeIn(0);

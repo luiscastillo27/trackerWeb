@@ -1,6 +1,6 @@
 var app = angular.module('VehiculosFormCtrl', []);
 
-app.controller('VehiculosFormCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', 'restApiImg', function ($scope, restApi, $location, auth, locStr, restApiImg) {
+app.controller('VehiculosFormCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
    
     $scope.clouse = function(){

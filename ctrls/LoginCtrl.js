@@ -1,13 +1,13 @@
 var app = angular.module('LoginCtrl', []);
 
-app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr', function ($scope, restApi, $location, auth, locStr) {
+app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
     if(!auth.hasToken()){
         $scope.pie = './templates/pie.html';
     	$scope.vacio =  function(){
     		$scope.login = {
     			email:undefined,
-    			contrasena:undefined
+    			password:undefined
     		}
     	}
         
@@ -15,7 +15,7 @@ app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr'
             
     		var data = {
     			email: $scope.login.email,
-    			contrasena: $scope.login.contrasena
+    			password: $scope.login.password
     		}
     		$("#loadLogin").slideDown();
     		$("#errorServidor").slideUp();
@@ -28,16 +28,15 @@ app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', 'locStr'
                 data: data,
                 response: function (resp) {   
                     $("#loadLogin").slideUp();
-                    console.log(resp);
-                    // if(resp.message == 'Haz ingresado correctamente'){
-                    //     auth.setToken(resp.result);
-                    //     $location.path('choferes');
-                    // }
-                    // if(resp.message == 'Credenciales no validas'){
-                    //     $("#RedencialesInvalidas").slideDown();
-                    // 	$scope.login.usuario = '';
-                    // 	$scope.login.contrasena = '';	
-                    // }
+                    if(resp.mensage == 'Haz ingresado correctamente'){
+                        auth.setToken(resp.token);
+                        $location.path('choferes');
+                    }
+                    if(resp.mensage == 'Credenciales no validas'){
+                        $("#RedencialesInvalidas").slideDown();
+                    	$scope.login.email = '';
+                    	$scope.login.password = '';	
+                    }
                 },
                 error: function (error) {
                     console.log(error);

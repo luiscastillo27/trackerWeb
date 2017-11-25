@@ -1,8 +1,8 @@
 var app = angular.module('SensoresCtrl', []);
 
-app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth', 'locStr',  function ($scope, restApi, $location, auth, locStr) {
+app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
 
-    //auth.redirectIfNotExists();
+    auth.redirectIfNotExists();
     $scope.pie = './templates/pie.html';
     $scope.nsensor = function(){
         $(".modal-bg").fadeIn(0);
