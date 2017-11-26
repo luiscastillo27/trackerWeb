@@ -30,14 +30,23 @@ app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', function
                 response: function (resp) {   
                     $("#loadLogin").slideUp();
                     if(resp.mensage == 'Haz ingresado correctamente'){
-                        auth.setToken(resp.token);
-                        $location.path('choferes');
+                        
+                        if(resp.rango == 1){
+                            auth.setToken(resp.token);
+                            $location.path('choferes');
+                        } else {
+                            $("#RangoInvalido").slideDown();
+                            $scope.login.email = '';
+                            $scope.login.password = '';
+                        }
+
                     }
                     if(resp.mensage == 'Credenciales no validas'){
                         $("#RedencialesInvalidas").slideDown();
                     	$scope.login.email = '';
                     	$scope.login.password = '';	
                     }
+                    
                 },
                 error: function (error) {
                     console.log(error);
