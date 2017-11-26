@@ -121,19 +121,30 @@
                                             <table class="table" ng-if="!cargando">
                                                 <thead class="text-primary">
                                                     <th>Correo electronico</th>
-                                                    <th>Contraseña</th>
+                                                    <th>Rango</th>
+                                                    <th>Estado</th>
+                                                    <th>Acciones</th>
                                                 </thead>
                                                 <tbody id="dataClientes">
 
-                                                    <tr ng-repeat="cliente in clientes | filter: buscador">
-                                                        <td>{{cliente.folio_contrato}}</td>
-                                                        <td>{{cliente.nombre_completo}}</td>
-                                                        <td>{{cliente.telefono}}</td>
-                                                        <td>{{cliente.fecha}}</td>
+                                                    <tr ng-repeat="chofer in choferes | filter: buscador">
+                                                        <td>{{chofer.email}}</td>
+                                                        <td ng-if="chofer.rango == 1">
+                                                            Administrador
+                                                        </td>
+                                                        <td ng-if="chofer.rango != 1">
+                                                            Chofer
+                                                        </td>
+                                                        <td ng-if="chofer.state = 1">
+                                                            Activo
+                                                        </td>
+                                                        <td ng-if="chofer.state = 0">
+                                                            Inactivo
+                                                        </td>
                                                         <td> 
-                                                            <a ng-click="editcliente(cliente.idCliente);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+                                                            <a ng-click="editchofer(chofer.idUsuario);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
                                                             
-                                                            <a ng-click="deletecliente(cliente.idCliente);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                                            <a ng-click="deletechofer(chofer.idUsuario);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
                                                         </td>
                                                     </tr>
                                                                 
@@ -149,14 +160,14 @@
                                             
                         </div><!-- ROW -->
 
-                            <div class="mostrar-caja" ng-if="exite">
+                            <!-- <div class="mostrar-caja" ng-if="exite">
                                 <div class="mostrar-btn">
                                     <a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar más</a>
                                 </div>
                                 <div class="mostrar-img">
                                     <img src="./img/load.gif" alt="">
                                 </div>
-                            </div>
+                            </div> -->
 
                     </div><!-- CONTAINER -->
                     <!-- AQUI EDITAR -->

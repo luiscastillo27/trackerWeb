@@ -17,6 +17,7 @@ app.controller('LoginCtrl',  ['$scope', 'restApi', '$location', 'auth', function
     			email: $scope.login.email,
     			password: $scope.login.password
     		}
+            $(".alert").fadeOut(0);
     		$("#loadLogin").slideDown();
     		$("#errorServidor").slideUp();
     		$("#RedencialesInvalidas").slideUp();

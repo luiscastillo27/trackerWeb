@@ -16,7 +16,7 @@ app.factory('auth', ['$location', function ($location) {
                 var base64Url = token.split('.')[1];
                 var base64 = base64Url.replace('-', '+').replace('_', '/');
 
-                return JSON.parse(window.atob(base64)).data;                
+                return JSON.parse(window.atob(base64));                
             } catch(err) {
                 $location.path('/');
             }
@@ -30,6 +30,11 @@ app.factory('auth', ['$location', function ($location) {
         },
         redirectIfNotExists: function () {
             if (!auth.hasToken()) {
+                $location.path('/login');
+            }
+        },
+        redirectIfNotAdmin: function (rango) {
+            if (rango != 1) {
                 $location.path('/login');
             }
         },
