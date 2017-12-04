@@ -88,7 +88,7 @@ app.controller('ChoferesFormCtrl', ['$scope', 'restApi', '$location', 'auth', fu
 		            console.log(validerror);
 		            $location.path('errorvalidate');
 		        }
-		    });
+		    }); 
 
 			console.log("eliminando");
 		}

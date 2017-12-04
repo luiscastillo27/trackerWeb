@@ -1,7 +1,7 @@
 
 	<div id="vNuevoPiezas" class="ventana">
 			<div class="title-ventana green">
-				Nuevas Piezas
+				Nuevas Piezas  
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
@@ -11,13 +11,13 @@
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
 								<label class="control-label">Nombre pieza</label>
-								<input type="text" class="form-control" ng-model="pago.folio_contrato">
+								<input type="text" class="form-control" ng-model="pieza.nombre">
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
 								<label class="control-label">Stock</label>
-								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
+								<input type="text" class="form-control" ng-model="pieza.stock">
 							</div>
 						</div>
 					</div>
@@ -25,15 +25,15 @@
 					
 
 
-					<button ng-disabled="formNuevoPagos.$invalid" ng-click="guardarPago(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-disabled="formNuevaPieza.$invalid" ng-click="nuevaPieza();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 
-					<div class="alert alert-success" id="exitoRegistrarPagos">
-		                <p>Se ha registrado correctamente el cliente</p>
+					<div class="alert alert-success" id="exitoRegistrarPieza">
+		                <p>Se ha registrado correctamente la pieza</p>
 		            </div> 
-		            <div class="alert alert-warning" id="waringRegistrarPagos">
-		                <p>Este folio ya esta registrado</p>
+		            <div class="alert alert-warning" id="waringRegistrarPieza">
+		                <p>Este folio ya esta registrado </p>
 		            </div>
-		            <div class="alert alert-inverse" id="loadRPagos">
+		            <div class="alert alert-inverse" id="loadPieza">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
 
@@ -41,111 +41,41 @@
 			</div>
 	</div><!-- NUEVO PAGOS -->
 
-	<div id="vVerPgs" class="ventana">
-			<div class="title-ventana gris">
-				Ver pagos
-			</div>
-			<div class="body-ventana">
-				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
-				<form>
 
-					<div class="row">
-						<div class="col-xs-4">
-							<div class="form-group label-floating">
-								<label class="control-label">Folio contrato</label>
-								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
-							</div>
-						</div>
-						<div class="col-xs-8">
-							<div class="form-group label-floating">
-								<label class="control-label">Terreno</label>
-								<div class="margintop"></div>
-								<select id="idTerrenos" required pattern="[0-9]+">
-									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-6">
-							<div class="form-group label-floating">
-								<label class="control-label">Fecha I/C</label>
-								<input type="date" class="form-control" id="fechac" required minlength="8">
-							</div>
-						</div>
-						<div class="col-xs-6">
-							<div class="form-group label-floating">
-								<label class="control-label">Nombre del cliente</label>
-								<div class="margintop"></div>							
-								<select id="idCliente" required pattern="[0-9]+">
-									<option ng-repeat="listarcliente in listarclientes" value="{{listarcliente.idCliente}}">{{listarcliente.nombre_completo}}</option>
-								</select>
-							</div>
-							</div>
-						</div>
-					</div>
-
-					<a ng-click="irDeposito();" class="btn btn-subir-form btn-success pull-right" md-raised-button>Ver mas</a>
-
-				</form>
-			</div>
-	</div><!-- VER PAGOS -->
-
-	<div id="vEditPgs" class="ventana">
+	<div id="vEditPieza" class="ventana">
 			<div class="title-ventana blue">
-				Editar pago
+				Editar piezas
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
-				<form role="form" name="formEditarPagos">
+				<form role="form" name="formEditarPiezas">
 
 	  				<div class="row">
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Folio contrato</label>
-								<input type="text" class="form-control" id="updfolio_contrato" required pattern="[0-9]+">
+								<label class="control-label">Nombre de la pieza</label>
+								<input type="text" class="form-control" id="ursnombre" required >
 							</div>
 						</div>
 						<div class="col-xs-8">
 							<div class="form-group label-floating">
-								<label class="control-label">Terreno</label>
-								<div class="margintop"></div>
-								<select id="updidTerreno" required pattern="[0-9]+">
-									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
-								</select>
-							</div>
+								<label class="control-label">Stock</label>
+								<input type="text" class="form-control" id="ursstock" required="">
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xs-6">
-							<div class="form-group label-floating">
-								<label class="control-label">Fecha I/C</label>
-								<input type="date" class="form-control" id="updfecha" required minlength="8">
-							</div>
-						</div>
-						<div class="col-xs-6">
-							<div class="form-group label-floating">
-								<label class="control-label">Nombre del cliente</label>
-								<div class="margintop"></div>							
-								<select id="updidCliente" required pattern="[0-9]+">
-									<option ng-repeat="listarcliente in listarclientes" value="{{listarcliente.idCliente}}">{{listarcliente.nombre_completo}}</option>
-								</select>
-							</div>
-							</div>
-						</div>
+					
 					</div>
 
-					<button ng-disabled="formEditarPagos.$invalid" ng-click="guardarPago(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-disabled="formEditarPiezas.$invalid" ng-click="editarPieza();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 
-					<div class="alert alert-success" id="exitoEditarPagos">
-		                <p>Se ha registrado correctamente el cliente</p>
+					<div class="alert alert-success" id="exitoActualizarPieza">
+		                <p>Se ha actualizado correctamente la pieza</p>
 		            </div> 
-		            <div class="alert alert-warning" id="waringEditarPagos">
-		                <p>Este folio ya esta registrado</p>
+		            <div class="alert alert-warning" id="waringEditarPiezas">
+		                <p>Este pieza ya esta registrado</p>
 		            </div>
-		            <div class="alert alert-inverse" id="loadEPagos">
+		            <div class="alert alert-inverse" id="loadEPiezas">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
 
@@ -153,37 +83,37 @@
 			</div>
 	</div><!-- EDITAR PAGOS -->
 
-	<div id="vDeletePgs" class="ventana mini">
+	<div id="vDeletePiezas" class="ventana mini">
 			<div class="title-ventana red">
-				Eliminar pago
+				Eliminar pieza
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
 				<form>
 
 	  
-					<p>¿Está seguro que desea eliminar este pago?</p>
+					<p>¿Está seguro que desea eliminar esta pieza?</p>
 
 					<div class="row">
 						<div class="col-xs-6">
-							<a ng-click="conformDeletePago(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+							<a ng-click="conformDeletePiezas(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
 						</div>
 						<div class="col-xs-6">
-							<a ng-click="conformDeletePago(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+							<a ng-click="conformDeletePiezas(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
 						</div>
 					</div>
 
 				</form>
 			</div><br>
 
-			<div class="alert alert-success" id="deletePagos">
+			<div class="alert alert-success" id="deletePiezas">
 		        <p>Se ha eliminado correctamente</p>
 		    </div>
 
 		    <div class="alert alert-warning" id="deleteWaringPagos">
 		        <p>Ya ha sido aliminado anteriormente</p>
 		    </div>
-		    <div class="alert alert-inverse" id="loadDeletePag">
+		    <div class="alert alert-inverse" id="deleteWaringPiezas">
 		        <img src="./img/load.gif" alt="cargando">
 		    </div> 
 

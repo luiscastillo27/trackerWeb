@@ -118,7 +118,7 @@
                         <div class="buscador">
                             <div class="form-group label-floating">
                                 <label class="control-label"></label>
-                                <input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar">
+                                <input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar vehiculo">
                             </div>
                         </div>       
                     </div><!-- CARD HEADER -->
@@ -143,20 +143,20 @@
                                 <th>Matricula</th>
                                 <th>Tipo</th>
                                 <th>Anio</th>
-                                
                             </thead>
-                            <tbody>
+                            <tbody id="dataVehiculos">
 
-                                <tr ng-repeat="detallesdeposito in detallesdepositos | filter: buscador">
-                                    <td>{{detallesdeposito.lote}}</td>
-                                    <td>{{detallesdeposito.manzana}}</td>
-                                    <td>{{detallesdeposito.pago_ingreso}}</td>
-                                    <td>{{detallesdeposito.pago_justificado}}</td>
-                                    <td>{{detallesdeposito.concepto}}</td>
-                                    <td>{{detallesdeposito.observaciones}}</td>
+                                <tr ng-repeat="vehiculo in vehiculos | filter: buscador">
+                                    <td>{{vehiculo.idUsuario}}</td>
+                                    <td>{{vehiculo.marca}}</td>
+                                    <td>{{vehiculo.modelo}}</td>
+                                    <td>{{vehiculo.matricula}}</td>
+                                    <td>{{vehiculo.tipo}}</td>
+                                    <td>{{vehiculo.anio}}</td>
                                     <td> 
-                                        <a ng-click="editdepositomas(detallesdeposito.idDetalleDeposito);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-                                        <a ng-click="deletedepositomas(detallesdeposito.idDetalleDeposito);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                        <a ng-click="editvehiculos(vehiculo.idVehiculo);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+                                                            
+                                        <a ng-click="deletevehiculos(vehiculo.idVehiculo);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
                                     </td>
                                 </tr>  
 

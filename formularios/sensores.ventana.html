@@ -13,27 +13,27 @@
 						<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Nombre pieza</label>
-								<input type="text" class="form-control" ng-model="pago.folio_contrato">
+								<label class="control-label">Nombre sensor</label>
+								<input type="text" class="form-control" ng-model="sensor.nombre">
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
 								<label class="control-label">Stock</label>
-								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
+								<input type="text" class="form-control" ng-model="sensor.stock">
 							</div>
 						</div>
 					</div>
 					
-					<button ng-disabled="formNuevoTerreno.$invalid" ng-click="guardarTerreno(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-disabled="formNuevoSensor.$invalid" ng-click="nuevoSensor()" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 		
-					<div class="alert alert-success" id="exitoRegistrarTerrenop">
+					<div class="alert alert-success" id="exitoRegistrarSensorp">
 		                <p>Se ha registrado correctamente</p>
 		            </div> 
-		            <div class="alert alert-warning" id="waringRegistrarTerrenop">
-		                <p>Este terreno ya esta registrado</p>
+		            <div class="alert alert-warning" id="waringRegistrarMza">
+		                <p>Este sensor ya esta registrado</p>
 		            </div>
-		            <div class="alert alert-inverse" id="loadRTerreno">
+		            <div class="alert alert-inverse" id="loadRSensor">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
 					
@@ -44,40 +44,40 @@
 
 
 
-	<div id="vEditTrn" class="ventana">
+	<div id="vEditSensor" class="ventana">
 		<div class="title-ventana blue">
-			Editar terreno
+			Editar sensor
 		</div>
 		
 		<div class="body-ventana">
 			<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
 				
-				<form role="form" name="formEditarTerreno">
+				<form role="form" name="formEditarSensor">
 					
 					<div class="row">
-						<div class="col-xs-6">
-							<div class="form-group label-floating">
-								<label class="control-label">Nombre pieza</label>
-								<input type="text" class="form-control" ng-model="pago.folio_contrato">
-							</div>
-						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
+								<label class="control-label">Nombre pieza</label>
+								<input type="text" class="form-control" id="ursnombre" required>
+							</div>
+						</div>
+						<div class="col-xs-8">
+							<div class="form-group label-floating">
 								<label class="control-label">Stock</label>
-								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
+								<input type="text" class="form-control" id="ursstock" required >
 							</div>
 						</div>
 					</div>
 
-					<button ng-disabled="formEditarTerreno.$invalid" ng-click="guardarTerreno(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-disabled="formEditarSensor.$invalid" ng-click="editarSensor();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 
-					<div class="alert alert-success" id="exitoActualizarTerrenop">
+					<div class="alert alert-success" id="exitoActualizarSensor">
 		                <p>Se ha actualizado correctamente</p>
 		            </div> 
-		            <div class="alert alert-warning" id="waringActualizarTerrenop">
+		            <div class="alert alert-warning" id="waringActualizarSensor">
 		                <p>Este id no se encuentra</p>
 		            </div> 
-		            <div class="alert alert-inverse" id="loadUTerreno">
+		            <div class="alert alert-inverse" id="loadUSensor">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
 
@@ -87,22 +87,22 @@
 	</div><!-- EDITAR TERRENO -->
 
 
-	<div id="vDeleteTrn" class="ventana mini">
+	<div id="vDeleteSensor" class="ventana mini">
 			<div class="title-ventana red">
-				Eliminar terreno
+				Eliminar sensor
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
 				<form>
 
-					<p>¿Está seguro que desea eliminar este terreno?</p>
+					<p>¿Está seguro que desea eliminar este sensor?</p>
 
 					<div class="row">
 						<div class="col-xs-6">
-							<a ng-click="conformDeleteTerreno(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+							<a ng-click="conformDeleteSensor(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
 						</div>
 						<div class="col-xs-6">
-							<a ng-click="conformDeleteTerreno(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+							<a ng-click="conformDeleteSensor(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
 						</div>
 					</div>	 
 
@@ -112,14 +112,14 @@
 			</div>
 			<br>
 
-			<div class="alert alert-success" id="deleteTerrenop">
+			<div class="alert alert-success" id="deleteSensorp">
 		        <p>Se ha eliminado correctamente</p>
 		    </div>
 
-		    <div class="alert alert-warning" id="deleteWaringTerrenop">
+		    <div class="alert alert-warning" id="deleteWaringSensor">
 		        <p>Ya ha sido aliminado anteriormente</p>
 		    </div>
-		    <div class="alert alert-inverse" id="loadDTerreno">
+		    <div class="alert alert-inverse" id="loadDelete">
 		        <img src="./img/load.gif" alt="cargando">
 		    </div> 
 

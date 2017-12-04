@@ -9,7 +9,7 @@ app.controller('ChoferesCtrl', ['$scope', 'restApi', '$location', 'auth', functi
 	$scope.cargando = true;
     $scope.pie = './templates/pie.html';
 
-    //ABRIR VEBTANA DE NUEVO USUARIO
+    //ABRIR VEBTANA DE NUEVO USUARIO 
     $scope.nchofer = function(){
 		$(".modal-bg").fadeIn(0);
 		$("#vNuevoChofer").fadeIn(0);

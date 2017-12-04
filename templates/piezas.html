@@ -1,5 +1,5 @@
 <div class="wrapper">
-  
+   
       <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
     
       <!-- 
@@ -127,7 +127,7 @@
                         
                         <div class="content-load" ng-if="cargando">
                             <h3>Cargando contenido</h3>
-                            <img src="./img/load.gif">
+                            <img src="./img/load.gif"> 
                         </div><!-- CONTENT LOAD -->
 
                         <div class="content-load" ng-if="vacio">
@@ -139,15 +139,17 @@
                                 <th>Nombre pieza</th>
                                 <th>Stock</th>
                             </thead>
-                            <tbody id="dataPagos">
+                            <tbody id="dataPiezas">
 
-                                <tr ng-repeat="pago in pagos | filter: buscador">
-                                    <td>{{pago.folio_contrato}}</td>
-                                    <td>{{pago.lote}}</td>
+                                <tr ng-repeat="pieza in piezas | filter: buscador">
+                                    <td>{{pieza.nombre}}</td>
+                                    <td>{{pieza.stock}}</td>
                                     <td> 
-                                        <a ng-click="editpago(pago.idPago);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-                                        <a ng-click="verpago(pago.idPago);" class="icon-accions fa fa-eye" aria-hidden="true"></a>
-                                        <a ng-click="deletepago(pago.idPago);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                        <a ng-click="editpiezas(pieza.idPieza);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+
+                                        <!--<a ng-click="verpago(pago.idPago);" class="icon-accions fa fa-eye" aria-hidden="true"></a>-->
+
+                                        <a ng-click="deletepiezas(pieza.idPieza);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
                                     </td>
                                 </tr>
                                             

@@ -118,7 +118,7 @@
                         <div class="buscador">
                             <div class="form-group label-floating">
                                 <label class="control-label"></label>
-                                <input type="text" class="form-control blanca" placeholder="Buscar sensor" ng-model="buscador">
+                                <input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar sensor">
                             </div>
                         </div>  
                     </div><!-- CARD HEADER -->
@@ -139,20 +139,16 @@
                                 <th>Nombre de sensor</th>
                                 <th>Stock</th>
                             </thead>
-                            <tbody id="dataTerrenos">
+                            <tbody id="dataSensor">
 
-                                <tr ng-repeat="terreno in terrenos | filter: buscador">
-                                    <td>{{terreno.lote}}</td>
-                                    <td>{{terreno.manzana}}</td>
-                                    <td>$ {{terreno.costo}} MXN</td>
+                                <tr ng-repeat="sensor in sensores | filter: buscador">
+                                    <td>{{sensor.nombre}}</td>
+                                    <td>{{sensor.stock}} </td>
+                                    
                                     <td>
-                                        <a ng-if="terreno.disponibilidad == 'Si' " class="btn btn-success btn-round">Disponible</a>
-                                        <a ng-if="terreno.disponibilidad == 'No' " class="btn btn-danger btn-round">Vendido</a>
-                                    </td>
-                                    <td ng-if="tipoUsr"> 
-                                        <a ng-click="editterreno(terreno.idTerreno)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-                                        <a ng-click="deleterreno(terreno.idTerreno)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
-                                    </td>
+                                        <a ng-click="editsensor(sensor.idSensor);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+                                        <!--<a ng-click="versensor(sensor.idSensor);" class="icon-accions fa fa-eye" aria-hidden="true"></a>-->
+                                        <a ng-click="deletesensor(sensor.idSensor);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
                                 </tr>
                                             
                             </tbody>

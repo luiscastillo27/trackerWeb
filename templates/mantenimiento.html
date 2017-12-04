@@ -143,13 +143,16 @@
                             </thead>
                             <tbody id="dataMantenimiento">
 
-                                <tr ng-repeat="mantenimiento in mantenimientos | filter: buscador">
-                                    <td>{{mantenimiento.idVehiculo}}</td>
-                                    <td>{{mantenimiento.idCoordenada}}</td>
-                                    <td>{{mantenimiento.tipo}}</td>
+                                <tr ng-repeat="mant in mantenimientos | filter: buscador">
+                                    <td>{{mant.idVehiculo}}</td>
+                                    <td>{{mant.idCoordenada}}</td>
+                                    <td>{{mant.tipo}}</td>
+                                    <td>{{mant.fechaI}}</td>
+                                    <td>{{mant.fechaT}}</td>
                                     <td> 
-                                        <a ng-click="editmantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
-                                        <a ng-if="mantenimiento.puesto != 'Administrador' " ng-click="delemantenimiento(mantenimiento.idMantenimiento)" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+                                        <a ng-click="editMantenimiento(mant.idMantenimiento);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+                                                            
+                                        <a ng-click="deletemantenimiento(mant.idMantenimiento);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
                                     </td>
                                 </tr>
                                             
