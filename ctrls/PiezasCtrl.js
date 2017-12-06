@@ -1,6 +1,8 @@
 var app = angular.module('PiezasCtrl', []);
 
+
 app.controller('PiezasCtrl',  ['$scope', 'restApi', '$location', 'auth', function ($scope, restApi, $location, auth) {
+
 
     auth.redirectIfNotExists();
 	var rang = auth.getUserData().rango;

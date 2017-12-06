@@ -49,8 +49,8 @@ app.controller('SensoresCtrl', ['$scope', 'restApi', '$location', 'auth', functi
 	        method: 'get',
 	        url: 'sensores/obtener/' + id,
 	        response: function (resp) {     
-	           document.getElementById("ursnombre").value = resp[0]["nombre"];
-	           document.getElementById("ursstock").value = resp[0]["stock"];
+	            document.getElementById("ursnombresentor").value = resp[0]["nombre"];
+	            document.getElementById("ursstocksensor").value = resp[0]["stock"];
 	        },
 	        error: function (error) {
 	            console.log(error);

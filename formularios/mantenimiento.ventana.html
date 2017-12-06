@@ -12,10 +12,10 @@
 						
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">idVehiculo</label>
+								<label class="control-label">Vehiculo</label>
 								<div class="margintop"></div>
 								<select ng-model="mantenimiento.idVehiculo" required pattern="[0-9]+">
-									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
+									<option ng-repeat="vehiculo in vehiculos" value="{{vehiculo.idVehiculo}}">{{vehiculo.modelo}} {{vehiculo.matricula}}</option>
 								</select>
 							</div>
 						</div>
@@ -24,8 +24,9 @@
 							<div class="form-group label-floating">
 								<label class="control-label">idCoordenada</label>
 								<div class="margintop"></div>
-								<select ng-model="mantenimiento.idVehiculo" required pattern="[0-9]+">
-									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
+								<select ng-model="mantenimiento.idCoordenada" required pattern="[0-9]+">
+									<option ng-repeat="coordenada in coordenadas" value="{{coordenada.idCoordenada}}">Latitud:{{coordenada.latitud}}
+									Longitud: {{coordenada.logitud}} </option>
 								</select>
 							</div>
 						</div>
@@ -35,13 +36,13 @@
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
 								<label class="control-label">Fecha inicio</label>
-								<input type="date" class="form-control" ng-model="pago.fecha" required minlength="8">
+								<input type="date" class="form-control" ng-model="mantenimiento.fechaI" required minlength="8">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
 							<label class="control-label">Fecha termino</label>
-							<input type="date" class="form-control">
+							<input type="date" class="form-control" ng-model="mantenimiento.fechaT" required>
 							</div>
 						</div>
 
@@ -52,7 +53,7 @@
 						<div class="form-group label-floating">
 								<label class="control-label">Tipo</label>
 								<div class="margintop"></div>
-								<select required ng-model="empelado.puesto" required>
+								<select required ng-model="mantenimiento.tipo" required>
 									<option value="Electrico">Electrico</option>
 									<option value="Mecanico">Mecanico</option>
 								</select>  
@@ -61,11 +62,16 @@
 					</div>
 
 
-					<button ng-click="guardarMantenimiento(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-click="guardarMantenimiento();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 
 					<div class="alert alert-success" id="exitoRegistrar">
 		                <p>Se ha registrado correctamente</p>
 		            </div> 
+
+		            <div class="alert alert-warning" id="existente">
+	                <p>El Mantenimiento ya existe</p>
+	            	</div>
+
 		            <div class="alert alert-inverse" id="load">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
@@ -74,5 +80,136 @@
 			</div>
 	</div><!-- NUEVO EMPLEADO -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="vEditarMantenimiento" class="ventana">
+			<div class="title-ventana blue">
+				Editar mantenimiento
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+
+				<form role="form" name="formNuevoMantenimiento">
+					
+					<div class="row">
+						
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Vehiculo</label>
+								<div class="margintop"></div>
+								<select id="mantVehiculo" required>
+									<option ng-repeat="vehiculo in vehiculos" value="{{vehiculo.idVehiculo}}">{{vehiculo.modelo}} {{vehiculo.matricula}}</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">idCoordenada</label>
+								<div class="margintop"></div>
+								<select id="mantCoordenada" required>
+									<option ng-repeat="coordenada in coordenadas" value="{{coordenada.idCoordenada}}">Latitud:{{coordenada.latitud}}
+									Longitud: {{coordenada.logitud}} </option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha inicio</label>
+								<input type="date" class="form-control" id="mantInicio" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+							<label class="control-label">Fecha termino</label>
+							<input type="date" class="form-control" id="mantFin">
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+						<div class="form-group label-floating">
+								<label class="control-label">Tipo</label>
+								<div class="margintop"></div>
+								<select required id="mantPuesto" required>
+									<option value="Electrico">Electrico</option>
+									<option value="Mecanico">Mecanico</option>
+								</select>  
+							</div>
+						</div>
+					</div>
+
+
+					<button ng-click="editarMantenimiento();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoActualizar">
+		                <p>Se ha registrado correctamente</p>
+		            </div> 
+
+		            <div class="alert alert-warning" id="existenteActualizar">
+	                <p>El Mantenimiento ya no existe</p>
+	            	</div>
+
+		            <div class="alert alert-inverse" id="load">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- NUEVO EMPLEADO -->
+
+
+	<div id="vDeleteMante" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar mantenimiento
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+					<br>
+					<p>¿Está seguro que desea eliminar este chofer?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteUsuario(1)" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteUsuario(0)" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<br>
+
+			<div class="alert alert-success" id="deleteRegistrarMant">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringRegistrarMant">
+		        <p>Ya ha sido eliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDeleteMant">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+		    
+	</div><!-- ELIMINAR CLIENTE -->    
 
 	

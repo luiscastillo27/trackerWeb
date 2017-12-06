@@ -26,7 +26,6 @@ app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', func
             	$scope.cargando = false;
             	$scope.vacio = false;
             } 
-
         },
         error: function (error) {
             console.log(error);
@@ -40,7 +39,7 @@ app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', func
 
 
 	//ABRIR VENTANA PARA EDITAR USUARIO
-	$scope.editvehiculo = function(id){
+	$scope.editvehiculos = function(id){
 		$(".modal-bg").fadeIn(0);
 		$("#vEditVehiculo").fadeIn(0);
 		localStorage["id"] = id;
@@ -49,14 +48,14 @@ app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', func
 		restApi.call({
 	        method: 'get',
 	        url: 'vehiculos/obtener/' + id,
-	        response: function (resp) {     
-	           document.getElementById("ursidUser").value = resp[0]["idUsuario"];
-	           document.getElementById("ursmarca").value = resp[0]["marca"];
-	           document.getElementById("ursmodelo").value = resp[0]["modelo"];
-	           document.getElementById("ursmatricula").value = resp[0]["matricula"];
-	           document.getElementById("urstipo").value = resp[0]["tipo"];
-	           document.getElementById("ursanio").value = resp[0]["anio"];
-
+	        response: function (resp) {  
+	        	console.log(resp);   
+	        	document.getElementById("ursidUser").value = resp[0]["idUsuario"];
+	        	document.getElementById("ursmarca").value = resp[0]["marca"];
+	        	document.getElementById("ursmodelo").value = resp[0]["modelo"];
+	        	document.getElementById("ursmatricula").value = resp[0]["matricula"];
+	        	document.getElementById("urstipo").value = resp[0]["tipo"];
+	        	document.getElementById("ursanio").value = resp[0]["anio"];
 	        },
 	        error: function (error) {
 	            console.log(error);
@@ -72,8 +71,9 @@ app.controller('VehiculosCtrl',  ['$scope', 'restApi', '$location', 'auth', func
 	//ABRIR VENTANA PARA ELIMINAR USUARIO
 	$scope.deletevehiculos = function(id){
 		$(".modal-bg").fadeIn(0);
-		$("#vDeleteChofer").fadeIn(0);		
+		$("#vDeleteVehivulos").fadeIn(0);		
 		localStorage["id"] = id;
+		console.log(id);
 	}
 
 

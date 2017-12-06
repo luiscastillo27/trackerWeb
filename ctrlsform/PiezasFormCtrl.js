@@ -31,18 +31,19 @@ app.controller('PiezasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', fun
             response: function (resp) {   
 	           
 	            $("#loadPieza").fadeOut(0);
-	            if(resp.mensaje == 'La pieza a sido agregada con éxito'){
+	            if(resp.mensage == 'La pieza ha sido registrada con exito'){
 	         	    $scope.pieza.stock = undefined;
 	            	$scope.pieza.nombre = undefined;
 	 				$("#exitoRegistrarPieza").fadeIn(0);
 	            }
 
-	            if(resp.mensaje == 'Usuario ya existe'){
+	            if(resp.mensage == 'Usuario ya existe'){
 	           		$scope.usuario.email = undefined;
 	           		$("#waringRegistrarPieza").fadeIn(0);
 	            }
-	           
+	        console.log(resp.mensage);   
 	        },
+
 	        error: function (error) {
 	            console.log(error);
 	            $location.path('errorserver');
@@ -71,10 +72,10 @@ app.controller('PiezasFormCtrl',  ['$scope', 'restApi', '$location', 'auth', fun
 	            response: function (resp) {   
 		           	console.log(resp);
 		           	$("#loadDelete").fadeOut(0);
-		           	if(resp.mensage == 'Se ha eliminado con exito'){
+		           	if(resp.mensaje == 'Se ha eliminado con exito'){
 		           		$("#deletePiezas").fadeIn(0);
 		           	} 
-		           	if(resp.mensage == 'La pieza no se encuentra en la db'){
+		           	if(resp.mensaje == 'La pieza no se encuentra en la db'){
 		           		$("#deleteWaringPiezas").fadeIn(0);
 		           	}
 		        },

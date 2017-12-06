@@ -2,7 +2,7 @@
 	<div id="vNuevoVehiculo" class="ventana">
 			<div class="title-ventana green">
 				Nuevo vehiculo
-			</div>
+			</div> 
 			<div class="body-ventana">
 				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
 				<form role="form" name="formNuevoVehiculo">
@@ -11,19 +11,21 @@
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
 								<label class="control-label">Usuarios</label>
-								<input type="text" class="form-control" ng-model="deposito.folio" >
+								<select ng-model="vehiculo.idUsuario" required required>
+									<option ng-repeat="vehiculo in vehiculos" value="{{vehiculo.idUsuario}}">{{vehiculo.email}} </option>
+								</select>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
 								<label class="control-label">Marca</label>
-								<input type="text" class="form-control" ng-model="pagosmas.folio_deslinde" >
+								<input type="text" class="form-control" ng-model="vehiculo.marca" required>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
 								<label class="control-label">Modelo</label>
-								<input type="text" class="form-control" ng-model="pagosmas.folio_enganche" >
+								<input type="text" class="form-control" ng-model="vehiculo.modelo" required>
 							</div>
 						</div>
 					</div>
@@ -32,36 +34,34 @@
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
 								<label class="control-label">Matricula</label>
-								<input type="text" class="form-control" ng-model="pagosmas.deslinde" required  minlength="4">
+								<input type="text" class="form-control" ng-model="vehiculo.matricula" required  minlength="7">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
 								<label class="control-label">Tipo</label>
-								<input type="text" class="form-control" ng-model="pagosmas.enganche"  minlength="2">
+								<input type="text" class="form-control" ng-model="vehiculo.tipo"  required>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
 								<label class="control-label">Anio</label>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" ng-model="vehiculo.anio" required>
 							</div>
 						</div>
 					</div>
 
 
-					<button ng-disabled="formNuevoPagoMas.$invalid" ng-click="guardarPagosMas(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-disabled="formNuevoVehiculo.$invalid" ng-click="nuevoVehiculo();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 
-					<div class="alert alert-success" id="exitoRegistrarMasPagos">
-		                <p>Se ha registrado correctamente el cliente</p>
+					<div class="alert alert-success" id="exitoRegistrarVehiculos">
+		                <p>Se ha registrado correctamente el vehiculo</p>
 		            </div> 
-		            <div class="alert alert-warning" id="waringEngancheMasPagos">
-		                <p>Este folio del enganche ya esta registrado</p>
+		            <div class="alert alert-warning" id="waringAgregarVehiculos">
+		                <p>Este vehiculo ya esta registrado</p>
 		            </div>
-		            <div class="alert alert-warning" id="waringDeslindeMasPagos">
-		                <p>Este folio del deslinde ya esta registrado</p>
-		            </div>
-		            <div class="alert alert-inverse" id="loadRMasPagos">
+		           
+		            <div class="alert alert-inverse" id="loadRVehiculos">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
 
@@ -71,31 +71,33 @@
 	</div><!-- NUEVO CLIENTE -->
 
 
-	<div id="vEditPgsMs" class="ventana">
+	<div id="vEditVehiculo" class="ventana">
 			<div class="title-ventana blue">
-				Editar mensualidad
+				Editar Vehiculo
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
-				<form role="form" name="formEditarPagoMas">
+				<form role="form" name="formEditarVehiculo">
 	  
 					<div class="row">
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Fin contrato</label>
-								<input type="date" class="form-control" id="vencimiento_contrato" required minlength="8">
+								<label class="control-label">Usuarios</label>
+								<select id="ursidUser" required>
+									<option ng-repeat="vehiculo in vehiculos" value="{{vehiculo.idUsuario}}">{{vehiculo.email}} </option>
+								</select>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Folio deslinde</label>
-								<input type="text" class="form-control" id="folio_deslinde" required pattern="[0-9]+">
+								<label class="control-label">Marca</label>
+								<input type="text" class="form-control" id="ursmarca" required>
 							</div>
 						</div>
 						<div class="col-xs-4">
 							<div class="form-group label-floating">
-								<label class="control-label">Folio enganche</label>
-								<input type="text" class="form-control" id="folio_enganche" required pattern="[0-9]+">
+								<label class="control-label">Modelo</label>
+								<input type="text" class="form-control" id="ursmodelo" required>
 							</div>
 						</div>
 					</div>
@@ -103,30 +105,35 @@
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Deslinde</label>
-								<input type="text" class="form-control" id="deslinde" required pattern="[0-9]+">
+								<label class="control-label">Matricula</label>
+								<input type="text" class="form-control" required  minlength="4" id="ursmatricula">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group label-floating">
-								<label class="control-label">Enganche</label>
-								<input type="text" class="form-control" id="enganche" required pattern="[0-9]+">
+								<label class="control-label">Tipo</label>
+								<input type="text" class="form-control" minlength="2" id="urstipo">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Anio</label>
+								<input type="text" class="form-control" required id="ursanio">
 							</div>
 						</div>
 					</div>
+					
 
-					<button ng-disabled="formEditarPagoMas.$invalid" ng-click="guardarPagosMas(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+					<button ng-disabled="formEditarCliente.$invalid" ng-click="editarVehiculo();" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
 
-					<div class="alert alert-success" id="exitoActualizarMasPagos">
-		                <p>Se ha registrado correctamente el cliente</p>
+					<div class="alert alert-success" id="exitoActualizarVehiculo">
+		                <p>Se han guardado los cambios con éxito.</p>
 		            </div> 
-		            <div class="alert alert-warning" id="waringEngancheMasPagosEdit">
-		                <p>Este folio del enganche ya esta registrado</p>
+		            <div class="alert alert-warning" id="waringActualizarVehiculo">
+		                <p>Este vehiculo ya esta registrado</p>
 		            </div>
-		            <div class="alert alert-warning" id="waringDeslindeMasPagosEdit">
-		                <p>Este folio del deslinde ya esta registrado</p>
-		            </div>
-		            <div class="alert alert-inverse" id="loadUMasPagos">
+		           
+		            <div class="alert alert-inverse" id="loadAVehiculo">
 		                <img src="./img/load.gif" alt="cargando">
 		            </div> 
 
@@ -135,9 +142,9 @@
 	</div><!-- EDITAR CLIENTE -->
 
 
-	<div id="vDeletePgsMs" class="ventana mini">
+	<div id="vDeleteVehivulos" class="ventana mini">
 			<div class="title-ventana red">
-				Eliminar 
+				Eliminar vehiculos
 			</div>
 			<div class="body-ventana">
 				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
@@ -148,10 +155,10 @@
 
 					<div class="row">
 						<div class="col-xs-6">
-							<a ng-click="conformDeletePagoms(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+							<a ng-click="conformDeleteVehiculos(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
 						</div>
 						<div class="col-xs-6">
-							<a ng-click="conformDeletePagoms(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+							<a ng-click="conformDeleteVehiculos(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
 						</div>
 					</div>
 
@@ -159,14 +166,14 @@
 			</div>
 			<br>
 
-			<div class="alert alert-success" id="exitoDeleteMas">
+			<div class="alert alert-success" id="exitoDeleteVehiculos">
 		        <p>Se ha eliminado correctamente</p>
 		    </div>
 
-		    <div class="alert alert-warning" id="deleteWaringDeleteMas">
+		    <div class="alert alert-warning" id="deleteWaringDeleteVehiculos">
 		        <p>Ya ha sido aliminado anteriormente</p>
 		    </div>
-		    <div class="alert alert-inverse" id="loadDeleteMas">
+		    <div class="alert alert-inverse" id="loadDeleteVehiculos">
 		        <img src="./img/load.gif" alt="cargando">
 		    </div> 
 

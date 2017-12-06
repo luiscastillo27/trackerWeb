@@ -63,10 +63,6 @@ app.config(['$routeProvider', '$locationProvider',  function($routeProvider, $lo
         .when('/errorvalidate', {
           templateUrl: 'templates/errorvalidate.html'
         }) 
-        .when('/load/:id', {
-          controller: 'ClientesLoadCtrl',
-          templateUrl: 'templates/load.html'
-        })
         .otherwise({ 
           redirectTo: '/'
         });

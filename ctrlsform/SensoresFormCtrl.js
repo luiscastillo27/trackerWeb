@@ -31,13 +31,13 @@ app.controller('SensoresFormCtrl', ['$scope', 'restApi', '$location', 'auth',  f
             response: function (resp) {   
 	           
 	            $("#loadRSensor").fadeOut(0);
-	            if(resp.mensaje == 'El sensor ha sido registrado con exito'){
+	            if(resp.mensage == 'El sensor ha sido registrado con exito'){
 	            	$scope.sensor.stock = undefined;
 	            	$scope.sensor.nombre = undefined;
 					$("#exitoRegistrarSensorp").fadeIn(0);
 	            }
 
-	            if(resp.mensaje == 'sensor ya existe'){
+	            if(resp.mensage == 'sensor ya existe'){
 	           		$scope.sensor.nombre = undefined;
 	           		
 	           		$("#waringRegistrarMza").fadeIn(0);
@@ -72,10 +72,10 @@ app.controller('SensoresFormCtrl', ['$scope', 'restApi', '$location', 'auth',  f
 	            response: function (resp) {   
 		           	console.log(resp);
 		           	$("#loadDelete").fadeOut(0);
-		           	if(resp.mensage == 'Se ha eliminado con exito'){
+		           	if(resp.mensaje == 'Se ha eliminado con exito'){
 		           		$("#deleteSensorp").fadeIn(0);
 		           	} 
-		           	if(resp.mensage == 'EL sensor no se encuentra en la db'){
+		           	if(resp.mensaje == 'EL sensor no se encuentra en la db'){
 		           		$("#deleteWaringSensor").fadeIn(0);
 		           	}
 		        },
@@ -106,8 +106,8 @@ app.controller('SensoresFormCtrl', ['$scope', 'restApi', '$location', 'auth',  f
 		$(".alert").fadeOut(0);
 		$("#loadUSensor").fadeIn(0);
 		var data = {
-			nombre: document.getElementById("ursnombre").value,
-			stock: document.getElementById("ursstock").value
+			nombre: document.getElementById("ursnombresentor").value,
+			stock: document.getElementById("ursstocksensor").value
 		}
 
 		restApi.call({
@@ -115,7 +115,7 @@ app.controller('SensoresFormCtrl', ['$scope', 'restApi', '$location', 'auth',  f
 		    url: 'sensores/actualizar/' + id ,
 		    data: data,
 	        response: function (resp) {   
-		        console.log(resp);
+		   
 		        $("#loadUSensor").fadeOut(0);
 		        if(resp.mensage == 'Se ha actualizado con exito'){
 		           	$("#exitoActualizarSensor").fadeIn(0);
@@ -123,6 +123,7 @@ app.controller('SensoresFormCtrl', ['$scope', 'restApi', '$location', 'auth',  f
 		        if(resp.mensage == 'El sensor no se encuentra en la db'){
 		           	$("#waringActualizarSensor").fadeIn(0);
 		        }
+		        
 		    },
 		    error: function (error) {
 		        console.log(error);

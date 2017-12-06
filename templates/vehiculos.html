@@ -50,12 +50,12 @@
                     <p>Vehiculos</p>
                 </a>
             </li> 
-            <li>
+           <!-- <li>
                 <a href="#/calendario">
                     <i class="fa fa-calendar"></i>
                     <p>Calendario</p>
                 </a>
-            </li>
+            </li>-->
         </ul>
 
       </div>
@@ -143,11 +143,12 @@
                                 <th>Matricula</th>
                                 <th>Tipo</th>
                                 <th>Anio</th>
+                                <th>Acciones</th>
                             </thead>
                             <tbody id="dataVehiculos">
 
                                 <tr ng-repeat="vehiculo in vehiculos | filter: buscador">
-                                    <td>{{vehiculo.idUsuario}}</td>
+                                    <td>{{vehiculo.email}}</td>
                                     <td>{{vehiculo.marca}}</td>
                                     <td>{{vehiculo.modelo}}</td>
                                     <td>{{vehiculo.matricula}}</td>

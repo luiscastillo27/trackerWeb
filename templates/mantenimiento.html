@@ -50,12 +50,12 @@
                     <p>Vehiculos</p>
                 </a>
             </li> 
-            <li>
+            <!--<li>
                 <a href="#/calendario">
                     <i class="fa fa-calendar"></i>
                     <p>Calendario</p>
                 </a>
-            </li>
+            </li>-->
         </ul>
 
       </div>
@@ -136,7 +136,8 @@
                         <table class="table" ng-if="!cargando">
                             <thead class="text-primary">
                                 <th>Vehiculo</th>
-                                <th>Coordenadas</th>
+                                <th>Latitud</th>
+                                <th>logitud</th>
                                 <th>Tipo</th>
                                 <th>Fecha inicio</th>
                                 <th>Fecha termino</th>
@@ -144,8 +145,9 @@
                             <tbody id="dataMantenimiento">
 
                                 <tr ng-repeat="mant in mantenimientos | filter: buscador">
-                                    <td>{{mant.idVehiculo}}</td>
-                                    <td>{{mant.idCoordenada}}</td>
+                                    <td>{{mant.modelo}} {{mant.matricula}}</td>
+                                    <td>{{mant.latitud}}</td>
+                                     <td>{{mant.logitud}}</td>
                                     <td>{{mant.tipo}}</td>
                                     <td>{{mant.fechaI}}</td>
                                     <td>{{mant.fechaT}}</td>
